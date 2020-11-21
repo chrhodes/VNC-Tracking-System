@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3339BF79-959F-4B43-BBAB-D39F3EAB900A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HIS_Tester</RootNamespace>
+    <AssemblyName>HIS_Tester</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'MATRIX|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\MATRIX\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\ODB_Tester.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PARTHENON|x86'">
+    <OutputPath>bin\x86\PARTHENON\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TRON|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\TRON\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\ODB_Tester.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csla, Version=4.1.0.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Common\CSLA\4.1.0\Bin\Debug\Client\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="PacificLife.Life.PLLog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a2ac78edf2dcdecc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Pacific Life\Systems\Common\PacificLife.Life.PLLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form_HISItemDetail2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_HISItemDetail2.Designer.cs">
+      <DependentUpon>Form_HISItemDetail2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_HISItemExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_HISItemExplorer.Designer.cs">
+      <DependentUpon>Form_HISItemExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ItemDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ItemDetails.Designer.cs">
+      <DependentUpon>Form_ItemDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_HISConstrainedValues.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_HISConstrainedValues.Designer.cs">
+      <DependentUpon>Form_HISConstrainedValues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_HISSchema_ChildLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_HISSchema_ChildLoad_ChildLoad.Designer.cs">
+      <DependentUpon>Form_HISSchema_ChildLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_HISSchema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_HISSchema.Designer.cs">
+      <DependentUpon>Form_HISSchema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_HISItemDetail2.resx">
+      <DependentUpon>Form_HISItemDetail2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_HISItemExplorer.resx">
+      <DependentUpon>Form_HISItemExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ItemDetails.resx">
+      <DependentUpon>Form_ItemDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_HISConstrainedValues.resx">
+      <DependentUpon>Form_HISConstrainedValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_HISSchema_ChildLoad.resx">
+      <DependentUpon>Form_HISSchema_ChildLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_HISSchema.resx">
+      <DependentUpon>Form_HISSchema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\HIS.Library.AttributesECBL.datasource" />
+    <None Include="Properties\DataSources\HIS.Library.AttributesERBL.datasource" />
+    <None Include="Properties\DataSources\HIS.Library.AttributeValuesECBL.datasource" />
+    <None Include="Properties\DataSources\HIS.Library.CharacteristicsECBL.datasource" />
+    <None Include="Properties\DataSources\HIS.Library.ConstrainedValueListsECBL.datasource" />
+    <None Include="Properties\DataSources\HIS.Library.ConstrainedValuesECBL.datasource" />
+    <None Include="Properties\DataSources\HIS.Library.DataTypesECBL.datasource" />
+    <None Include="Properties\DataSources\HIS.Library.HISSchema.datasource" />
+    <None Include="Properties\DataSources\HIS.Library.Items.datasource" />
+    <None Include="Properties\DataSources\HIS.Library.ItemsECBL.datasource" />
+    <None Include="Properties\DataSources\HIS.Library.ItemsERLP.datasource" />
+    <None Include="Properties\DataSources\HIS.Library.TypeAttributesECBL.datasource" />
+    <None Include="Properties\DataSources\HIS.Library.TypesECBL.datasource" />
+    <None Include="Properties\DataSources\HIS.Library.HISSchemaERLP.datasource" />
+    <None Include="Properties\DataSources\HIS.Library.TablesECBL.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HIS.DAL.Sql\HIS.DAL.Sql.csproj">
+      <Project>{A42A0094-1914-47C7-92D7-BC05583AEE33}</Project>
+      <Name>HIS.DAL.Sql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HIS.Library\HIS.Library.csproj">
+      <Project>{5C042A96-815D-4492-ADA5-891406A84ECD}</Project>
+      <Name>HIS.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HIS\HIS.csproj">
+      <Project>{4A6BDD7F-BD50-4232-BDDA-0B082599666A}</Project>
+      <Name>HIS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HISTestDAL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

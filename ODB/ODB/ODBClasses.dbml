@@ -1,0 +1,785 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ODB" Class="ODBClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=STARBUCK;Initial Catalog=ODB;Persist Security Info=True;User ID=sa" SettingsObjectName="ODB.Properties.Settings" SettingsPropertyName="ODBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ActivityLog" Member="ActivityLogs">
+    <Type Name="ActivityLog">
+      <Column Name="activitylog_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="table_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="logfunction_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="value" Type="System.String" DbType="VarChar(2048)" CanBeNull="true" />
+      <Column Name="who" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[when]" Member="when" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="notes" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Associations" Member="Associations">
+    <Type Name="Association">
+      <Column Name="association_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="table_id_begin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_id_begin" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id_end" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_id_end" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="associationrule_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AssociationRules" Member="AssociationRules">
+    <Type Name="AssociationRule">
+      <Column Name="associationrule_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="table_id_begin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="table_id_end" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id_begin" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id_end" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="associationtype_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AssociationTypes" Member="AssociationTypes">
+    <Type Name="AssociationType">
+      <Column Name="associationtype_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="associationtype_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="associationtype_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tables" Member="Tables">
+    <Type Name="Table">
+      <Column Name="table_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="table_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="table_version" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="table_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemTypeAttributes" Member="ItemTypeAttributes">
+    <Type Name="ItemTypeAttribute">
+      <Column Name="itemtypeattribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="attribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="usage_attributes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="datatype_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itemtypeattribute_version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itemtypeattribute_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DataTypes" Member="DataTypes">
+    <Type Name="DataType">
+      <Column Name="datatype_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="datatype_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="datatype_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UsageAttributes" Member="UsageAttributes">
+    <Type Name="UsageAttribute">
+      <Column Name="usageattribute_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="usageattribute_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="usageattribute_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Attributes" Member="Attributes">
+    <Type Name="Attribute">
+      <Column Name="attribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="attribute_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemTypes" Member="ItemTypes">
+    <Type Name="ItemType">
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="itemtype_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="itemtype_version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itemtype_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemTypeGroups" Member="ItemTypeGroups">
+    <Type Name="ItemTypeGroup">
+      <Column Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="itemtypegroup_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypegroup_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LogFunctions" Member="LogFunctions">
+    <Type Name="LogFunction">
+      <Column Name="logfunction_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="logfunction_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="logfunction_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AttributeValues" Member="AttributeValues">
+    <Type Name="AttributeValue">
+      <Column Name="attributevalue_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="table_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="item_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypeattribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="value" Type="System.String" DbType="VarChar(2048) NOT NULL" CanBeNull="false" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Items" Member="Items">
+    <Type Name="Item">
+      <Column Name="item_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="item_name" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ConstrainedValueLists" Member="ConstrainedValueLists">
+    <Type Name="ConstrainedValueList">
+      <Column Name="constrainedvaluelist_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="constrainedvaluelist_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="constrainedvaluelist_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="constrainedvaluelist_nbritems" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="constrainedvaluelist_datatype_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ConstrainedValues" Member="ConstrainedValues">
+    <Type Name="ConstrainedValue">
+      <Column Name="constrainedvalue_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="constrainedvaluelist_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="constrainedvalue_value" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="constrainedvalue_ordinal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="constrainedvalue_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ActivityLog_Insert" Method="ActivityLog_Insert">
+    <Parameter Name="table_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="item_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="log_function_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="value" Type="System.String" DbType="VarChar(2048)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="notes" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ActivityLog_Select" Method="ActivityLog_Select">
+    <ElementType Name="ActivityLog_SelectResult">
+      <Column Name="activitylog_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="logfunction_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="value" Type="System.String" DbType="VarChar(2048)" CanBeNull="true" />
+      <Column Name="who" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[when]" Member="when" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="notes" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AssociationRules_Delete" Method="AssociationRules_Delete">
+    <Parameter Name="associationrule_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UsageAttributes_Update" Method="UsageAttributes_Update">
+    <Parameter Name="usageattribute_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="usageattribute_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="usageattribute_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AssociationRules_Insert" Method="AssociationRules_Insert">
+    <Parameter Name="associationrule_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="table_id_begin" Type="System.Int32" DbType="Int" />
+    <Parameter Name="itemtype_id_begin" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="table_id_end" Type="System.Int32" DbType="Int" />
+    <Parameter Name="itemtype_id_end" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="associationtype_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="AssociationRules_InsertResult">
+      <Column Name="associationrule_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id_begin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id_begin" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id_end" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id_end" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="associationtype_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AssociationRules_Select" Method="AssociationRules_Select">
+    <ElementType Name="AssociationRules_SelectResult">
+      <Column Name="associationrule_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id_begin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="table_id_end" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id_begin" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id_end" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="associationtype_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AssociationRules_Update" Method="AssociationRules_Update">
+    <Parameter Name="associationrule_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="table_id_begin" Type="System.Int32" DbType="Int" />
+    <Parameter Name="itemtype_id_begin" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="table_id_end" Type="System.Int32" DbType="Int" />
+    <Parameter Name="itemtype_id_end" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="associationtype_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="AssociationRules_UpdateResult">
+      <Column Name="associationrule_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id_begin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id_begin" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id_end" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id_end" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="associationtype_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Associations_Delete" Method="Associations_Delete">
+    <Parameter Name="association_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Associations_Insert" Method="Associations_Insert">
+    <Parameter Name="association_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="table_id_begin" Type="System.Int32" DbType="Int" />
+    <Parameter Name="item_id_begin" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="table_id_end" Type="System.Int32" DbType="Int" />
+    <Parameter Name="item_id_end" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="associationrule_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="Associations_InsertResult">
+      <Column Name="association_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id_begin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_id_begin" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id_end" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_id_end" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="associationrule_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Associations_Select" Method="Associations_Select">
+    <ElementType Name="Associations_SelectResult">
+      <Column Name="association_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id_begin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_id_begin" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id_end" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_id_end" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="associationrule_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Associations_Update" Method="Associations_Update">
+    <Parameter Name="association_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="table_id_begin" Type="System.Int32" DbType="Int" />
+    <Parameter Name="item_id_begin" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="table_id_end" Type="System.Int32" DbType="Int" />
+    <Parameter Name="item_id_end" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="associationrule_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="Associations_UpdateResult">
+      <Column Name="association_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id_begin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_id_begin" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id_end" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_id_end" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="associationrule_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AssociationTypes_Delete" Method="AssociationTypes_Delete">
+    <Parameter Name="associationtype_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AssociationTypes_Insert" Method="AssociationTypes_Insert">
+    <Parameter Name="associationtype_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="associationtype_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="associationtype_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AssociationTypes_Select" Method="AssociationTypes_Select">
+    <ElementType Name="AssociationTypes_SelectResult">
+      <Column Name="associationtype_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="associationtype_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="associationtype_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AssociationTypes_Update" Method="AssociationTypes_Update">
+    <Parameter Name="associationtype_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="associationtype_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="associationtype_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Attributes_Delete" Method="Attributes_Delete">
+    <Parameter Name="attribute_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Attributes_Insert" Method="Attributes_Insert">
+    <Parameter Name="attribute_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="attribute_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="Attributes_InsertResult">
+      <Column Name="attribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="attribute_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Attributes_Select" Method="Attributes_Select">
+    <ElementType Name="Attributes_SelectResult">
+      <Column Name="attribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="attribute_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Attributes_Update" Method="Attributes_Update">
+    <Parameter Name="attribute_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="attribute_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="Attributes_UpdateResult">
+      <Column Name="attribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="attribute_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DataTypes_Delete" Method="DataTypes_Delete">
+    <Parameter Name="datatype_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DataTypes_Insert" Method="DataTypes_Insert">
+    <Parameter Name="datatype_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="datatype_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="datatype_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DataTypes_Select" Method="DataTypes_Select">
+    <ElementType Name="DataTypes_SelectResult">
+      <Column Name="datatype_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="datatype_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="datatype_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DataTypes_Update" Method="DataTypes_Update">
+    <Parameter Name="datatype_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="datatype_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="datatype_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemTypeAttributes_Delete" Method="ItemTypeAttributes_Delete">
+    <Parameter Name="itemtypeattribute_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemTypeAttributes_Insert" Method="ItemTypeAttributes_Insert">
+    <Parameter Name="itemtypeattribute_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="attribute_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="usage_attributes" Type="System.Int32" DbType="Int" />
+    <Parameter Name="datatype_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="itemtypeattribute_version" Type="System.Int32" DbType="Int" />
+    <Parameter Name="itemtypeattribute_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="ItemTypeAttributes_InsertResult">
+      <Column Name="itemtypeattribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="attribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="usage_attributes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="datatype_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itemtypeattribute_version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itemtypeattribute_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemTypeAttributes_Select" Method="ItemTypeAttributes_Select">
+    <ElementType Name="ItemTypeAttributes_SelectResult">
+      <Column Name="itemtypeattribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="attribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="usage_attributes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="datatype_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itemtypeattribute_version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itemtypeattribute_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemTypeAttributes_SelectByItemTypeId" Method="ItemTypeAttributes_SelectByItemTypeId">
+    <Parameter Name="ItemTypeId" Parameter="itemTypeId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="ItemTypeAttributes_SelectByItemTypeIdResult">
+      <Column Name="itemtypeattribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="attribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="usage_attributes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="datatype_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itemtypeattribute_version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itemtypeattribute_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemTypeAttributes_Update" Method="ItemTypeAttributes_Update">
+    <Parameter Name="itemtypeattribute_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="attribute_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="usage_attributes" Type="System.Int32" DbType="Int" />
+    <Parameter Name="datatype_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="itemtypeattribute_version" Type="System.Int32" DbType="Int" />
+    <Parameter Name="itemtypeattribute_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="ItemTypeAttributes_UpdateResult">
+      <Column Name="itemtypeattribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="attribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="usage_attributes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="datatype_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itemtypeattribute_version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itemtypeattribute_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemTypeGroups_Delete" Method="ItemTypeGroups_Delete">
+    <Parameter Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemTypeGroups_Insert" Method="ItemTypeGroups_Insert">
+    <Parameter Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="itemtypegroup_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="itemtypegroup_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="ItemTypeGroups_InsertResult">
+      <Column Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypegroup_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypegroup_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemTypeGroups_Select" Method="ItemTypeGroups_Select">
+    <ElementType Name="ItemTypeGroups_SelectResult">
+      <Column Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypegroup_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypegroup_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemTypeGroups_Update" Method="ItemTypeGroups_Update">
+    <Parameter Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="itemtypegroup_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="itemtypegroup_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemTypes_Delete" Method="ItemTypes_Delete">
+    <Parameter Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemTypes_Insert" Method="ItemTypes_Insert">
+    <Parameter Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="itemtype_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="itemtype_version" Type="System.Int32" DbType="Int" />
+    <Parameter Name="itemtype_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="ItemTypes_InsertResult">
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="itemtype_version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itemtype_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemTypes_Select" Method="ItemTypes_Select">
+    <ElementType Name="ItemTypes_SelectResult">
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="itemtype_version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itemtype_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemTypes_SelectByItemTypeGroupId" Method="ItemTypes_SelectByItemTypeGroupId">
+    <Parameter Name="ItemTypeGroupId" Parameter="itemTypeGroupId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="ItemTypes_SelectByItemTypeGroupIdResult">
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="itemtype_version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itemtype_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemTypes_Update" Method="ItemTypes_Update">
+    <Parameter Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="itemtype_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="itemtype_version" Type="System.Int32" DbType="Int" />
+    <Parameter Name="itemtype_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="ItemTypes_UpdateResult">
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypegroup_id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="itemtype_version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itemtype_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Tables_Delete" Method="Tables_Delete">
+    <Parameter Name="table_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="last_changed" Type="System.Data.Linq.Binary" DbType="Timestamp" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Tables_Insert" Method="Tables_Insert">
+    <Parameter Name="table_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="table_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="table_version" Type="System.Int32" DbType="Int" />
+    <Parameter Name="table_description" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="Tables_InsertResult">
+      <Column Name="table_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="table_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="table_version" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="table_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Tables_Select" Method="Tables_Select">
+    <ElementType Name="Tables_SelectResult">
+      <Column Name="table_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="table_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="table_version" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="table_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Tables_Update" Method="Tables_Update">
+    <Parameter Name="table_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="table_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="table_version" Type="System.Int32" DbType="Int" />
+    <Parameter Name="table_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="last_changed" Type="System.Data.Linq.Binary" DbType="Timestamp" />
+    <ElementType Name="Tables_UpdateResult">
+      <Column Name="table_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="table_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="table_version" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="table_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="last_changed" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UsageAttributes_Delete" Method="UsageAttributes_Delete">
+    <Parameter Name="usageattribute_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UsageAttributes_Insert" Method="UsageAttributes_Insert">
+    <Parameter Name="usageattribute_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="usageattribute_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="usageattribute_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UsageAttributes_Select" Method="UsageAttributes_Select">
+    <ElementType Name="UsageAttributes_SelectResult">
+      <Column Name="usageattribute_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="usageattribute_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="usageattribute_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ConstrainedValueLists_Delete" Method="ConstrainedValueLists_Delete">
+    <Parameter Name="constrainedvaluelist_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ConstrainedValues_Update" Method="ConstrainedValues_Update">
+    <Parameter Name="constrainedvalue_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="constrainedvaluelist_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="constrainedvalue_value" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="constrainedvalue_ordinal" Type="System.Int32" DbType="Int" />
+    <Parameter Name="constrainedvalue_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="ConstrainedValues_UpdateResult">
+      <Column Name="constrainedvalue_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="constrainedvaluelist_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="constrainedvalue_value" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="constrainedvalue_ordinal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="constrainedvalue_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ConstrainedValueLists_Insert" Method="ConstrainedValueLists_Insert">
+    <Parameter Name="constrainedvaluelist_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="constrainedvaluelist_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="constrainedvaluelist_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="constrainedvaluelist_nbritems" Type="System.Int32" DbType="Int" />
+    <Parameter Name="constrainedvaluelist_datatype_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ConstrainedValueLists_Select" Method="ConstrainedValueLists_Select">
+    <ElementType Name="ConstrainedValueLists_SelectResult">
+      <Column Name="constrainedvaluelist_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="constrainedvaluelist_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="constrainedvaluelist_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="constrainedvaluelist_nbritems" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="constrainedvaluelist_datatype_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ConstrainedValueLists_Update" Method="ConstrainedValueLists_Update">
+    <Parameter Name="constrainedvaluelist_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="constrainedvaluelist_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="constrainedvaluelist_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="constrainedvaluelist_nbritems" Type="System.Int32" DbType="Int" />
+    <Parameter Name="constrainedvaluelist_datatype_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ConstrainedValues_Delete" Method="ConstrainedValues_Delete">
+    <Parameter Name="constrainedvalue_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ConstrainedValues_Insert" Method="ConstrainedValues_Insert">
+    <Parameter Name="constrainedvalue_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="constrainedvaluelist_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="constrainedvalue_value" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="constrainedvalue_ordinal" Type="System.Int32" DbType="Int" />
+    <Parameter Name="constrainedvalue_description" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="ConstrainedValues_InsertResult">
+      <Column Name="constrainedvalue_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="constrainedvaluelist_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="constrainedvalue_value" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="constrainedvalue_ordinal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="constrainedvalue_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ConstrainedValues_Select" Method="ConstrainedValues_Select">
+    <ElementType Name="ConstrainedValues_SelectResult">
+      <Column Name="constrainedvalue_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="constrainedvaluelist_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="constrainedvalue_value" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="constrainedvalue_ordinal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="constrainedvalue_description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Items_Delete" Method="Items_Delete">
+    <Parameter Name="item_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Items_Update" Method="Items_Update">
+    <Parameter Name="item_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="item_name" Type="System.String" DbType="VarChar(256)" />
+    <Parameter Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="Items_UpdateResult">
+      <Column Name="item_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="item_name" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Items_Insert" Method="Items_Insert">
+    <Parameter Name="item_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="item_name" Type="System.String" DbType="VarChar(256)" />
+    <Parameter Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="Items_InsertResult">
+      <Column Name="item_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="item_name" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Items_Select" Method="Items_Select">
+    <ElementType Name="Items_SelectResult">
+      <Column Name="item_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="item_name" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Items_SelectByItemName" Method="Items_SelectByItemName">
+    <Parameter Name="item_name" Type="System.String" DbType="VarChar(256)" />
+    <ElementType Name="Items_SelectByItemNameResult">
+      <Column Name="item_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="item_name" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Items_SelectByItemTypeId" Method="Items_SelectByItemTypeId">
+    <Parameter Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="Items_SelectByItemTypeIdResult">
+      <Column Name="item_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="item_name" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="itemtype_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AttributeValues_Delete" Method="AttributeValues_Delete">
+    <Parameter Name="attributevalue_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AttributeValues_Update" Method="AttributeValues_Update">
+    <Parameter Name="attributevalue_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="table_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="item_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="itemtypeattribute_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="value" Type="System.String" DbType="VarChar(2048)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="AttributeValues_UpdateResult">
+      <Column Name="attributevalue_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="item_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypeattribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="value" Type="System.String" DbType="VarChar(2048) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AttributeValues_Insert" Method="AttributeValues_Insert">
+    <Parameter Name="attributevalue_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="table_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="item_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="itemtypeattribute_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="value" Type="System.String" DbType="VarChar(2048)" />
+    <Parameter Name="who" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="note" Type="System.String" DbType="VarChar(1024)" />
+    <ElementType Name="AttributeValues_InsertResult">
+      <Column Name="attributevalue_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="item_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypeattribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="value" Type="System.String" DbType="VarChar(2048) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AttributeValues_Select" Method="AttributeValues_Select">
+    <ElementType Name="AttributeValues_SelectResult">
+      <Column Name="attributevalue_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="table_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="item_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="itemtypeattribute_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="value" Type="System.String" DbType="VarChar(2048) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+HISTestDAL.xml
+
+Used to test the basic Select, Insert, Update, Delete, DeleteAll
+operations supported by the HIS DAL.  Processed by HIS.Schema.Provision(). 
+-->
+<HIS>
+  <!--
+  Table 1
+  -->
+  <Tables>
+    <DeleteAll />
+    <Insert
+      id="1" 
+      name="Table1" 
+      version="1" 
+      description="Table1 Description." />
+    <Insert
+      id="2"
+      name="Table2"
+      version="1"
+      description="Table2 Description." />    
+    <Update
+      id="1"
+      name="Tables1Newname"
+      version="2"
+      description="Table1 New Description." />
+    <Delete
+      id="1" /> 
+  </Tables>
+  
+  <!--
+  Table 2 is ActivityLog table.
+  -->
+  
+  <!--
+  Table 3
+  -->
+  <AssociationRules>
+    <DeleteAll />
+    <Insert
+      associationrule_id="NewGuid" 
+      table_id_begin="11"
+      table_id_end="12" 
+      itemtype_id_begin="70EE0785-978A-4a3f-9A54-65C4C593B730" 
+      itemtype_id_end="70694EC1-1667-472c-B90C-C9FD2EBA3E97" 
+      associationtype_id="1" />
+    <Update
+      associationrule_id="NewGuid"
+      table_id_begin="11"
+      table_id_end="12"
+      itemtype_id_begin="70EE0785-978A-4a3f-9A54-65C4C593B730"
+      itemtype_id_end="70694EC1-1667-472c-B90C-C9FD2EBA3E97"
+      associationtype_id="1" />
+    <Delete
+      associationrule_id="NewGuid" />
+  </AssociationRules>
+  <!--
+  Table 4
+  -->
+  <Associations>
+    <DeleteAll />
+    <Insert
+      association_id="NewGuid" 
+      table_id_begin="10"
+      table_id_end="11" 
+      item_id_begin="70EE0785-978A-4a3f-9A54-65C4C593B730" 
+      item_id_end="70EE0785-978A-4a3f-9A54-65C4C593B730" 
+      associationrule_id="1dbfb6ed-098b-4fe2-b04e-5575d6e85042" 
+      itemtypegroup_id="{70EE0785-978A-4a3f-9A54-65C4C593B730}" />
+  </Associations>
+  <!--
+  Table 5
+  -->
+  <AssociationTypes>
+    <DeleteAll />
+    <Insert
+      associationtype_id="1" 
+      associationtype_name="Contains"
+      associationtype_description="Contains Description"/>
+    <Insert
+      associationtype_id="2" 
+      associationtype_name="Associates"
+      associationtype_description="Associates Description"/>
+    <Update
+      associationtype_id="1"
+      associationtype_name="Contains"
+      associationtype_description="New Contains Description"/>
+    <Delete
+      associationtype_id="2" />
+  </AssociationTypes>
+  <!--
+  Table 6
+  -->
+  <Attributes>
+    <DeleteAll />
+    <Insert 
+      attribute_id="39D0F1A0-0FF0-4BC9-8FBF-69599B6818D7"
+      name="arbook" />
+  </Attributes>
+  <!--
+  Table 7
+  -->
+  <AttributeValues>
+    <Insert
+      attributevalue_id="NewGuid" 
+      table_id="11"
+      item_id="46745966-91ca-4125-9212-019e91510afc" 
+      type_id="347fc721-6920-4020-93a4-942a82f0fbeb" 
+      value="C# for dummies"/>
+  </AttributeValues>
+  <!--
+  Table 8
+  -->
+  <ConstrainedValueLists>
+    <DeleteAll />
+    <Insert
+      constraintedvaluelist_id="NewGuid"
+      constraintedvaluelist_name="Colors"
+      constraintedvaluelist_description="List of colors"
+      constraintedvaluelist_numberitems="3"
+      constraintedvaluelist_datatype_id="2"/>
+  </ConstrainedValueLists>
+  <!--
+  Table 9
+  -->
+  <ConstrainedValues>
+    <!--<DeleteAll />-->
+    <Insert
+      constrainedvalue_id="NewGuid"
+      constrainedvaluelist_id="ea69ab8e-e1b2-4994-9c80-b56d11e7d8a3"
+      value="Red"
+      ordinal="1"
+      description="Color Red" />
+    <Insert
+      constrainedvalue_id="NewGuid"
+      constrainedvaluelist_id="ea69ab8e-e1b2-4994-9c80-b56d11e7d8a3" 
+      value="Green"
+      ordinal="2"
+      description="Color Green" />
+    <Insert
+      constrainedvalue_id="NewGuid"
+      constrainedvaluelist_id="ea69ab8e-e1b2-4994-9c80-b56d11e7d8a3" 
+      value="Blue"
+      ordinal="3"
+      description="Color Blue" />
+  </ConstrainedValues>
+  <!--
+  Table 10
+  -->
+  <DataTypes>
+    <DeleteAll />
+    <Insert
+      datatype_id="1" 
+      name="number" 
+      description="bigint" />
+  </DataTypes>
+  
+  <!--
+  Table 11
+  -->
+  <Items>
+    <DeleteAll />
+    <Insert
+      item_id="NewGuid" 
+      name="C# For Dummies" 
+      type_id="add16fe6-9424-4af7-834c-12a472172b76"/>
+  </Items>
+  <!--
+  Table 12
+  -->
+  <TypeAttributes>
+    <DeleteAll />
+    <Insert
+      typeattribute_id="a0ed8f5d-8e4f-43d4-98d0-6febd5ff3660" 
+      type_id="add16fe6-9424-4af7-834c-12a472172b76" 
+      attribute_id="347fc721-6920-4020-93a4-942a82f0fbeb" 
+      characteristics="3" 
+      datatype_id="2" 
+      version="1" 
+      description="Title"/>
+  </TypeAttributes>
+  
+  <!--
+  Table 13
+  -->
+  <ItemTypeGroups>
+    <DeleteAll />
+    <Insert
+      itemtypegroup_id="NewGuid" 
+      itemtypegroup_name="Books" 
+      itemtypegroup_description="All types of books" />
+    <Insert
+      itemtypegroup_id="NewGuid"
+      itemtypegroup_name="Cars"
+      itemtypegroup_description="All types of cars" />    
+  </ItemTypeGroups>
+  <!--
+  Table 14
+  -->
+  <Types>
+    <DeleteAll />
+    <Insert
+      type_id="add16fe6-9424-4af7-834c-12a472172b76"
+      name="Book" 
+      itemtypegroup_id="0991FE2E-7FC8-491A-B211-13DCB54CA673" 
+      version="1" 
+      description="Book item type" />
+    <Update
+      type_id="add16fe6-9424-4af7-834c-12a472172b76"
+      name="Airplane"
+      itemtypegroup_id="0991FE2E-7FC8-491A-B211-13DCB54CA673"
+      version="2"
+      description="Airplane item type" />
+    <Delete
+      type_id="add16fe6-9424-4af7-834c-12a472172b76" />    
+  </Types>
+  <!--
+  Table 15
+  -->
+  <LogFunctions>
+    <DeleteAll />
+    <Insert
+      logfunction_id="1" 
+      name="Insert" 
+      description="Insert Operation" />
+    <Insert
+      logfunction_id="2"
+      name="Update"
+      description="Update Operation" />
+    <Update
+      logfunction_id="2"
+      name="Updating"
+      description="Updating Operation" />
+    <Delete
+      logfunction_id="2" />   
+  </LogFunctions>
+
+  <!--
+  -->
+  <Characteristics>
+    <DeleteAll />
+    <Insert
+      characteristic_id="1"
+      name="IsRequired"       
+      description="Attribute is required." />
+    <Insert
+      characteristic_id="2"
+      name="IsRed"
+      description="Attribute is red." />
+    <Update
+      characteristic_id="2"
+      name="IsBlue"
+      description="Attribute is blue." />
+    <Delete
+      characteristic_id="2" />    
+  </Characteristics>
+</HIS>

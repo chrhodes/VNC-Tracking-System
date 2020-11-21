@@ -1,0 +1,42 @@
+﻿<Window x:Class="HIS_Administration.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Name="stackPanel1" Margin="3,3,3,3">
+            <Border>
+                <Button Content="Process Provisioning File" Name="btnProcessProvisioningFile" Click="btnProcessProvisioningFile_Click" />
+            </Border>
+            <Button Content="Admin HIS Schema" Name="btnAdminSchema" Click="btnAdminSchema_Click" />
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Name="stackPanel2" Margin="3,3,3,3">
+            <Button Content="HIS Schema ECL Form" Name="btnHISSchemaForm" Click="btnHISSchemaWindow_Click" Margin="3,3,3,3" />
+            <Button Content="HIS Schema ECL_ChildLoad Form" Name="btnHISSchemaForm2" Click="btnHISSchemaWindow2_Click" Margin="3,3,3,3"/>
+        </StackPanel>
+        <Border Grid.Row="1" Grid.Column="0" >
+            <StackPanel  Name="stackPanel3" Margin="3,3,3,3">
+                <Label>Hello</Label>
+                <Button Content="HIS Constrained Values" Name="btnConstrainedValuesForm" Margin="3,3,3,3" Click="btnConstrainedValuesWindow_Click" />
+            </StackPanel>
+        </Border>
+        
+        <StackPanel Grid.Row="1" Grid.Column="1" Name="stackPanel4" Margin="3,3,3,3">
+            <!--<Border>-->
+                <Label>Hello</Label>
+                <Button Content="HIS Item Explorer" Name="btnItemExplorerWindow" Margin="3,3,3,3" Click="btnItemExplorerWindow_Click" />
+                <Button Content="HIS Item Detail" Name="btnItemDetailWindow" Margin="3,3,3,3" Click="btnItemDetailWindow_Click" />
+                <Button Content="HIS Item Detail2" Name="btnItemDetail2Window" Margin="3,3,3,3" Click="btnItemDetail2Window_Click" />
+            <!--</Border>-->
+        </StackPanel>
+    </Grid>
+</Window>

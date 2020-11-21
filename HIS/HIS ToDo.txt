@@ -1,0 +1,11 @@
+Figure out how to evaluate success of SQL commands, e.g. update and delete.  Perhaps return a row count and
+throw an exception.
+
+Figure out how to handle errors in HIS.DAL.Sql - which exceptions to throw.
+
+Add VNC.AppLog to lots of stuff to start getting a feel for where the time is going.
+
+Talk to Chris R. about New and Get.  Why bother having NewEditiableChild and turning it into NewTableEC.  Why not just leave
+at New and Get which would look like TableEC.New() or TableEC.Get(...)
+
+Ask Chris R. about Child_X() vs Child_X(object parent) or Child_X(object criteria).  Why does template not include () form.

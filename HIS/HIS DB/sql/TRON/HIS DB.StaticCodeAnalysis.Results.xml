@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Problems>
+  <Problem>
+    <Rule>Microsoft.Rules.Data.SR0014</Rule>
+    <ProblemDescription>Data loss might occur when casting from VarChar(128) to Int.</ProblemDescription>
+    <SourceFile>C:\TFS\VNC\VNC TRACKING SYSTEM\HIS\HIS DB\SCHEMA OBJECTS\PROGRAMMABILITY\STORED PROCEDURES\DBO.ACTIVITYLOG_DELETEALL.PROC.SQL</SourceFile>
+    <Line>55</Line>
+    <Column>29</Column>
+    <Severity>Warning</Severity>
+  </Problem>
+  <Problem>
+    <Rule>Microsoft.Rules.Data.SR0014</Rule>
+    <ProblemDescription>Data loss might occur when casting from Integer to VarChar(128).</ProblemDescription>
+    <SourceFile>C:\TFS\VNC\VNC TRACKING SYSTEM\HIS\HIS DB\SCHEMA OBJECTS\PROGRAMMABILITY\STORED PROCEDURES\DBO.ACTIVITYLOG_DELETEALL.PROC.SQL</SourceFile>
+    <Line>55</Line>
+    <Column>42</Column>
+    <Severity>Warning</Severity>
+  </Problem>
+  <Problem>
+    <Rule>Microsoft.Rules.Data.SR0014</Rule>
+    <ProblemDescription>Data loss might occur when casting from VarChar(5000) to VarChar(4000).</ProblemDescription>
+    <SourceFile>C:\TFS\VNC\VNC TRACKING SYSTEM\HIS\HIS DB\SCHEMA OBJECTS\PROGRAMMABILITY\STORED PROCEDURES\DBO.ACTIVITYLOG_SELECT.PROC.SQL</SourceFile>
+    <Line>43</Line>
+    <Column>7</Column>
+    <Severity>Warning</Severity>
+  </Problem>
+  <Problem>
+    <Rule>Microsoft.Rules.Data.SR0014</Rule>
+    <ProblemDescription>Data loss might occur when casting from VarChar(5000) to VarChar(4000).</ProblemDescription>
+    <SourceFile>C:\TFS\VNC\VNC TRACKING SYSTEM\HIS\HIS DB\SCHEMA OBJECTS\PROGRAMMABILITY\STORED PROCEDURES\DBO.ATTRIBUTEVALUES_SELECTWHERE.PROC.SQL</SourceFile>
+    <Line>41</Line>
+    <Column>7</Column>
+    <Severity>Warning</Severity>
+  </Problem>
+  <Problem>
+    <Rule>Microsoft.Rules.Data.SR0014</Rule>
+    <ProblemDescription>Data loss might occur when casting from VarChar(5000) to VarChar(4000).</ProblemDescription>
+    <SourceFile>C:\TFS\VNC\VNC TRACKING SYSTEM\HIS\HIS DB\SCHEMA OBJECTS\PROGRAMMABILITY\STORED PROCEDURES\DBO.CONSTRAINEDVALUELISTS_SELECTWHERE.PROC.SQL</SourceFile>
+    <Line>41</Line>
+    <Column>7</Column>
+    <Severity>Warning</Severity>
+  </Problem>
+  <Problem>
+    <Rule>Microsoft.Rules.Data.SR0014</Rule>
+    <ProblemDescription>Data loss might occur when casting from VarChar(5000) to VarChar(4000).</ProblemDescription>
+    <SourceFile>C:\TFS\VNC\VNC TRACKING SYSTEM\HIS\HIS DB\SCHEMA OBJECTS\PROGRAMMABILITY\STORED PROCEDURES\DBO.CONSTRAINEDVALUES_SELECTWHERE.PROC.SQL</SourceFile>
+    <Line>41</Line>
+    <Column>7</Column>
+    <Severity>Warning</Severity>
+  </Problem>
+  <Problem>
+    <Rule>Microsoft.Rules.Data.SR0014</Rule>
+    <ProblemDescription>Data loss might occur when casting from VarChar(5000) to VarChar(4000).</ProblemDescription>
+    <SourceFile>C:\TFS\VNC\VNC TRACKING SYSTEM\HIS\HIS DB\SCHEMA OBJECTS\PROGRAMMABILITY\STORED PROCEDURES\DBO.ITEMS_SELECTWHERE.PROC.SQL</SourceFile>
+    <Line>39</Line>
+    <Column>7</Column>
+    <Severity>Warning</Severity>
+  </Problem>
+  <Problem>
+    <Rule>Microsoft.Rules.Data.SR0014</Rule>
+    <ProblemDescription>Data loss might occur when casting from Int to VarChar(128).</ProblemDescription>
+    <SourceFile>C:\TFS\VNC\VNC TRACKING SYSTEM\HIS\HIS DB\SCHEMA OBJECTS\PROGRAMMABILITY\STORED PROCEDURES\DBO.TABLES_INSERT.PROC.SQL</SourceFile>
+    <Line>78</Line>
+    <Column>6</Column>
+    <Severity>Warning</Severity>
+  </Problem>
+  <Problem>
+    <Rule>Microsoft.Rules.Data.SR0014</Rule>
+    <ProblemDescription>Data loss might occur when casting from VarChar(5000) to VarChar(4000).</ProblemDescription>
+    <SourceFile>C:\TFS\VNC\VNC TRACKING SYSTEM\HIS\HIS DB\SCHEMA OBJECTS\PROGRAMMABILITY\STORED PROCEDURES\DBO.TYPEATTRIBUTES_SELECTWHERE.PROC.SQL</SourceFile>
+    <Line>43</Line>
+    <Column>7</Column>
+    <Severity>Warning</Severity>
+  </Problem>
+</Problems>

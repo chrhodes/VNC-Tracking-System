@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+-->
+<ODB>
+  <!--
+  Table 1
+  -->
+  <Tables>
+    <DeleteAll />
+    <Insert
+      table_id="1"
+      table_name="Tables"
+      table_version="1"
+      table_description="Contains the list of tables in the ODB database and their current version."/>
+    <Insert
+      table_id="2"
+      table_name="ActivityLog"
+      table_version="1"
+      table_description="Records all {Insert|Update|Delete} activity and who performed it and when."/>
+    <Insert
+      table_id="3"
+      table_name="AssociationRules"
+      table_version="1"
+      table_description="Defines the beginning and end of an association and it's type.  Associations are permitted across tables."/>
+    <Insert
+      table_id="4"
+      table_name="Associations"
+      table_version="1"
+      table_description="One row for every association between two items."/>
+    <Insert
+      table_id="5"
+      table_name="AssciationTypes"
+      table_version="1"
+      table_description="Defines the types of associations that are permitted."/>
+    <Insert
+      table_id="6"
+      table_name="Attributes"
+      table_version="1"
+      table_description="Defines the attribute names that are supported by the system.  ItemTypeAttributes defines more about a specific attribute in the context of an item."/>
+    <Insert
+      table_id="7"
+      table_name="AttributeValues"
+      table_version="1"
+      table_description="One row for every attribute value applied to a specific item in a specific table.  This table along with Items is the main table in the ODB."/>
+    <Insert
+      table_id="8"
+      table_name="ConstrainedValueLists"
+      table_version="1"
+      table_description="Defines the CVLs supported by the ODB."/>
+    <Insert
+      table_id="9"
+      table_name="ConstrainedValues"
+      table_version="1"
+      table_description="One row for every allowed value in a particular CVL."/>
+    <Insert
+      table_id="10"
+      table_name="DataTypes"
+      table_version="1"
+      table_description="Defines the datatypes supported by the ODB."/>
+    <Insert
+      table_id="11"
+      table_name="Items"
+      table_version="1"
+      table_description="One row for every item tracked in the ODB.  This table, along with AttributeValues, is the main table in the ODB."/>
+    <Insert
+      table_id="12"
+      table_name="ItemTypeAttributes"
+      table_version="1"
+      table_description="Defines the particular attributes and their characteristics that apply to a specific type of item."/>
+    <Insert
+      table_id="13"
+      table_name="ItemTypeGroups"
+      table_version="1"
+      table_description="Defines the groupings of ItemTypes supported by the ODB."/>
+    <Insert
+      table_id="14"
+      table_name="ItemTypes"
+      table_version="1"
+      table_description="Defines the types of items supported by the ODB."/>
+    <Insert
+      table_id="15"
+      table_name="LogFunctions"
+      table_version="1"
+      table_description="Defines the type of logging actions supported."/>
+    <Insert
+      table_id="16"
+      table_name="UsageAttributes"
+      table_version="1"
+      table_description="Defines the usage characteristics of a ItemTypeAttribute.  usageattributes is a bit field of values defined in this table."/>
+  </Tables>
+  <!--
+  Table 2 is ActivityLog table.
+  -->
+  <!--
+  Table 3
+  -->
+  <AssociationRules>
+    <DeleteAll />
+    <Insert
+      associationrule_id="{74581470-2F03-43FE-8539-A5837532BB1E}" 
+      table_id_begin="11" 
+      table_id_end="12" 
+      itemtype_id_begin="{70EE0785-978A-4A3F-9A54-65C4C593B730}" 
+      itemtype_id_end="{70694EC1-1667-472C-B90C-C9FD2EBA3E97}" 
+      associationtype_id="1"/>
+  </AssociationRules>
+  <!--
+  Table 4
+  -->
+  <Associations>
+    <DeleteAll />
+    <Insert
+      association_id="{C174FBDD-C001-4F9F-92D2-154A69FC4EB9}" 
+      table_id_begin="10"
+      table_id_end="11" 
+      item_id_begin="{70EE0785-978A-4A3F-9A54-65C4C593B730}" 
+      item_id_end="{70EE0785-978A-4A3F-9A54-65C4C593B730}" 
+      associationrule_id="{74581470-2F03-43FE-8539-A5837532BB1E}" 
+      itemtypegroup_id="{70EE0785-978A-4A3F-9A54-65C4C593B730}"/>
+  </Associations>
+  <!--
+  Table 5
+  -->
+  <AssociationTypes>
+    <DeleteAll />
+    <Insert
+      associationtype_id="1" 
+      associationtype_name="Contains"
+      associationtype_description="Begin thing contains End thing.  Deleting Begin thing deletes End thing."/>
+    <Insert
+      associationtype_id="2" 
+      associationtype_name="Associates"
+      associationtype_description="Begin thing is associated with End thing.  Deleting Begin thing does not delete End thing"/>
+  </AssociationTypes>
+  <!--
+  Table 6
+  -->
+  <Attributes>
+    <DeleteAll />
+    <Insert
+      attribute_id="{39D0F1A0-0FF0-4BC9-8FBF-69599B6818D7}"
+      attribute_name="arbook" />
+    <Insert
+      attribute_id="{60F8104D-338E-481E-95C7-47160538163B}"
+      attribute_name="author" />
+    <Insert
+      attribute_id="{243BD1EA-6C77-4A63-A656-2EA02857AF1F}"
+      attribute_name="bookinstance" />
+    <Insert
+      attribute_id="{EFBBECF9-C5FA-4D28-8804-046CF1171F6A}"
+       attribute_name="character" />
+    <Insert
+      attribute_id="{87464725-2EF3-45FA-9B1B-D84A8536412A}"
+      attribute_name="comments" />
+    <Insert
+      attribute_id="{2DBBDF74-E2FA-45A3-9ADA-79FF3F3415F7}"
+      attribute_name="copyright" />
+    <Insert
+      attribute_id="{08E96E9B-BE6E-4227-B791-120D9E8A763C}"
+      attribute_name="firstname" />
+    <Insert
+      attribute_id="{DF33F608-CAEE-4600-8610-7CB894CE466A}"
+      attribute_name="format" />
+    <Insert
+      attribute_id="{63D15911-09D0-4133-A897-C67994A75A00}"
+      attribute_name="forwhom" />
+    <Insert
+      attribute_id="{C5DE4B07-F304-4874-B4B9-C870793D92DC}"
+      attribute_name="genre" />
+    <Insert
+      attribute_id="{F34A6E13-5028-4976-A5FE-452EC9ECCECE}"
+      attribute_name="isbn" />
+    <Insert
+      attribute_id="{F488FB26-B858-4511-8D79-0C5E90D74FA9}"
+      attribute_name="lastname" />
+    <Insert
+      attribute_id="{D8C63F06-A2B2-4E32-8C43-3AB2EE9C399E}"
+      attribute_name="level" />
+    <Insert
+      attribute_id="{532AEA14-5311-46C3-B167-BEAE62B828CD}"
+      attribute_name="loan" />
+    <Insert
+      attribute_id="{0566EA83-90EC-4BA4-80AA-AEE920FEBC92}"
+      attribute_name="loandate" />
+    <Insert
+      attribute_id="{14646939-D6DF-46AF-B46E-71494D30DA36}"
+      attribute_name="loanto" />
+    <Insert
+      attribute_id="{131FA1EE-288B-43D5-9C17-8A0E7CCDFBBA}"
+      attribute_name="locale" />
+    <Insert
+      attribute_id="{DB4F7FFF-D9A2-481E-84D3-504F3DDB4B76}"
+      attribute_name="location" />
+    <Insert
+      attribute_id="{5C2C0F21-7CB8-46C0-B31D-9E16443C0130}"
+      attribute_name="middlename" />
+    <Insert
+      attribute_id="{5BC6F192-B5FA-4D0A-BB09-FFA7A5F48ADD}"
+       attribute_name="owner" />
+    <Insert
+      attribute_id="{E82A4F7D-1996-48F0-AFAF-5A1FBCD1E310}"
+      attribute_name="points" />
+    <Insert
+      attribute_id="{FBCFCE72-51CF-4117-BE3D-A0EFC6C2945E}"
+      attribute_name="publisher" />
+    <Insert
+      attribute_id="{4A39314E-E814-4D96-AC51-68AC4D884BC5}"
+      attribute_name="rating" />
+    <Insert
+      attribute_id="{C2EEBA14-4C27-4EC0-A6CD-A9FBE29E7898}"
+      attribute_name="read" />
+    <Insert
+      attribute_id="{E30787F0-A3B9-412C-8BE8-91A71E2EA186}"
+      attribute_name="readby" />
+    <Insert
+      attribute_id="{F8353898-DAF0-44AE-BBF0-F991D16D2B59}"
+      attribute_name="readdate" />
+    <Insert
+      attribute_id="{2C673267-A57C-48B3-835C-0344BE9BE277}"
+      attribute_name="recommendation" />
+    <Insert
+      attribute_id="{1C82B2B1-19A5-480E-A4A5-4FA81AF804E5}"
+       attribute_name="returndate" />
+    <Insert
+      attribute_id="{0991FE2E-7FC8-491A-B211-13DCB54CA673}"
+      attribute_name="score" />
+    <Insert
+      attribute_id="{C694ACCB-EA31-44FD-9C6D-52FB43BFD78A}"
+      attribute_name="story" />
+    <Insert
+      attribute_id="{D7AEF902-2B31-4850-AAB9-A41751005885}"
+      attribute_name="storyline" />
+    <Insert
+      attribute_id="{496A55CE-22E6-4ABD-9069-0DEC3E0FB85F}"
+      attribute_name="suffix" />
+    <Insert
+      attribute_id="{30631432-1EA5-4264-84C6-32CA2662389E}"
+      attribute_name="theme" />
+    <Insert
+      attribute_id="{347FC721-6920-4020-93A4-942A82F0FBEB}"
+      attribute_name="title" />
+    <Insert
+      attribute_id="{495587DB-5B69-4052-9412-48DBC76E0622}"
+      attribute_name="table_id_begin" />
+    <Insert
+      attribute_id="{44B7E551-57DC-4239-8E8B-E6EA23A54245}"
+      attribute_name="table_id_end" />
+    <Insert
+      attribute_id="{{142EEFB6-5A5E-4F11-82B4-69943B3643CD}"
+      attribute_name="item_id_begin" />
+    <Insert
+      attribute_id="{FE20D03A-DB9D-4685-B573-49920291CF3D}"
+      attribute_name="item_id_end" />
+    <Insert
+      attribute_id="{4B301596-1823-4407-8136-22C3CF32AC5E}"
+      attribute_name="itemtype_id" />    
+  </Attributes>
+  <!--
+  Table 7
+  -->
+  <AttributeValues>
+    <Insert
+      attributevalue_id="{613630C6-FFCD-4B65-A13A-88EBAAF5C881}" 
+      table_id="11"
+      item_id="46745966-91CA-4125-9212-019E91510AFC" 
+      itemtypeattribute_id="A0ED8F5D-8E4F-43D4-98D0-6FEBD5FF3660"
+      attributevalue_value="C# for dummies"/>
+    <Insert
+      attributevalue_id="{19CC36DF-D50A-4200-B977-F18417FD066F}"
+      table_id="11"
+      item_id="7D4697FC-B1B3-496F-AE57-0E1DDAED5452"
+      itemtypeattribute_id="9EB2AF26-6AB7-4105-9BE7-0793F12AD78B"
+      attributevalue_value="John Doe"/>    
+  </AttributeValues>
+  <!--
+  Table 8
+  -->
+  <ConstrainedValueLists>
+    <DeleteAll />
+    <Insert
+      constrainedvaluelist_id="{EA69AB8E-E1B2-4994-9C80-B56D11E7D8A3}"
+      constrainedvaluelist_name="Color"
+      constrainedvaluelist_description="List of colors"
+      constrainedvaluelist_nbritems="3"
+      constrainedvaluelist_datatype_id="2"/>
+    <Insert
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvaluelist_name="Genre"
+      constrainedvaluelist_description="List of Genres"
+      constrainedvaluelist_nbritems="20"
+      constrainedvaluelist_datatype_id="2"/>    
+  </ConstrainedValueLists>
+  <!--
+  Table 9
+  -->
+  <ConstrainedValues>
+    <DeleteAll />
+    <Insert
+      constrainedvalue_id="{F80BD447-567F-4CB4-95B2-573C8B548844}"
+      constrainedvaluelist_id="{EA69AB8E-E1B2-4994-9C80-B56D11E7D8A3}"
+      constrainedvalue_value="Red"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Color Red" />
+    <Insert
+      constrainedvalue_id="{7A5FEC20-83B5-47D8-A2A8-97E41DE9A2EC}"
+      constrainedvaluelist_id="{EA69AB8E-E1B2-4994-9C80-B56D11E7D8A3}" 
+      constrainedvalue_value="Green"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Color Green" />
+    <Insert
+      constrainedvalue_id="{0C20539A-5ACA-4F0A-AC29-ECBCDDFE0E4A}"
+      constrainedvaluelist_id="{EA69AB8E-E1B2-4994-9C80-B56D11E7D8A3}" 
+      constrainedvalue_value="Blue"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Color Blue" />
+    
+    <Insert
+      constrainedvalue_id="{0CB14DBA-C698-439F-9BF0-8708DD233006}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="General Fiction"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="General Fiction" />
+    <Insert
+      constrainedvalue_id="{73672164-8DF2-47C5-AF10-FA79FF297C90}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Classics"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Classics" />
+    <Insert
+      constrainedvalue_id="{C0132027-D551-4E06-B3B8-2648AE1C2D7B}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Crime"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Crime" />
+    <Insert
+      constrainedvalue_id="{94448316-2316-440A-9E37-7DEB01458A6F}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Science Fiction"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Science Fiction" />
+    <Insert
+      constrainedvalue_id="{C8E30845-CF67-4F15-B555-19A7FFECC376}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Poetry"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Poetry" />
+    <Insert
+      constrainedvalue_id="{0058C247-0296-4FE8-B2D1-66C51796303A}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Polictics, Society"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Polictics, Society" />
+    <Insert
+    constrainedvalue_id="{C19A5486-945B-4376-8AE8-28BDFA039808}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Philosophy"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Philosophy" />
+    <Insert
+      constrainedvalue_id="{B2CA928C-1C52-422B-839E-588385B004A9}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Travel"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Travel" />
+    <Insert
+      constrainedvalue_id="{B2B3636E-49E5-4077-82A8-3228998E149B}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Arts &amp; Entertainment"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Arts &amp; Entertainment" />
+    <Insert
+      constrainedvalue_id="{CC60FDD4-CC3F-4A4D-9B8E-66CA1D1D9A62}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Fantasy"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Fantasy" />
+    <Insert
+      constrainedvalue_id="{5791D218-B95A-45D8-A151-78DA2772BAE3}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Non-Fiction"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Non-Fiction" />
+    <Insert
+      constrainedvalue_id="{3734A0EE-25C0-4853-912D-2D038C66A554}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Biography"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Biography" />
+    <Insert
+      constrainedvalue_id="{80009147-7E0B-4451-A40C-F014AFD6E748}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Children &amp; Teen"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Children &amp; Teen" />
+    <Insert
+      constrainedvalue_id="{5962F7C8-51FF-4BED-837F-1618A34EAB5A}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Reference &amp; Languages"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Reference &amp; Languages" />
+    <Insert
+      constrainedvalue_id="{44E4CCB0-5E07-42E6-9931-CF0FE40A5623}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Science &amp; Nature"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Science &amp; Nature" />
+    <Insert
+      constrainedvalue_id="{2F5A1B70-22DA-40A8-AE07-FBFD776502DD}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Health, Mind, Body"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Health, Mind, Body" />
+    <Insert
+    constrainedvalue_id="{A484CF0F-9EE1-4CC1-9351-50AB307EEA76}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+    constrainedvalue_value="Sport &amp; Leisure"
+    constrainedvalue_ordinal="1"
+    constrainedvalue_description="Sport &amp; Leisure" />
+    <Insert
+      constrainedvalue_id="{5524D8CC-6E5B-4AFE-BFB9-415602BF567E}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="Computing &amp; Network"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="Computing &amp; Network" />
+    <Insert
+      constrainedvalue_id="{54BA82D8-67E4-4D7E-BC55-ECF8FC704318}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      constrainedvalue_value="House &amp; Garden"
+      constrainedvalue_ordinal="1"
+      constrainedvalue_description="House &amp; Garden" />
+  </ConstrainedValues>
+  <!--
+  Table 10
+  -->
+  <DataTypes>
+    <DeleteAll />
+    <Insert
+      datatype_id="1" 
+      datatype_name="number" 
+      datatype_description="bigint"/>
+    <Insert
+      datatype_id="2"
+      datatype_name="string"
+      datatype_description="nvarchar(1024)"/>
+    <Insert
+      datatype_id="3"
+      datatype_name="datetime"
+      datatype_description="datetime"/>
+    <Insert 
+      datatype_id="4"
+      datatype_name="money"
+      datatype_description="currency"/>
+    <Insert
+      datatype_id="5"
+      datatype_name="oid"
+      datatype_description="GUID"/>
+    <Insert
+      datatype_id="6"
+      datatype_name="image"
+      datatype_description="image"/>
+    <Insert 
+      datatype_id="7"
+      datatype_name="constrainedvalue"
+      datatype_description="Constrained Value" />
+  </DataTypes>
+  <!--
+  Table 11
+  -->
+  <Items>
+    <DeleteAll />
+    <Insert
+      item_id="46745966-91CA-4125-9212-019E91510AFC" 
+      item_name="C# For Dummies" 
+      itemtype_id="ADD16FE6-9424-4AF7-834C-12A472172B76"/>
+    <Insert 
+      item_id="7D4697FC-B1B3-496F-AE57-0E1DDAED5452" 
+      item_name="VB For Dummies" 
+      itemtype_id="ADD16FE6-9424-4AF7-834C-12A472172B76"/>
+  </Items>
+  <!--
+  Table 12
+  -->
+  <ItemTypeAttributes>
+    <DeleteAll />
+    <Insert
+      itemtypeattribute_id="A0ED8F5D-8E4F-43D4-98D0-6FEBD5FF3660" 
+      itemtype_id="ADD16FE6-9424-4AF7-834C-12A472172B76" 
+      attribute_id="347FC721-6920-4020-93A4-942A82F0FBEB" 
+      usageattributes="3" 
+      datatype_id="2" 
+      itemtypeattribute_version="1" 
+      itemtypeattribute_description="Title"/>
+    <Insert
+      itemtypeattribute_id="9EB2AF26-6AB7-4105-9BE7-0793F12AD78B"
+      itemtype_id="ADD16FE6-9424-4AF7-834C-12A472172B76"
+      attribute_id="60F8104D-338E-481E-95C7-47160538163B"
+      usageattributes="3"
+      datatype_id="2"
+      itemtypeattribute_version="1"
+      itemtypeattribute_description="Author"/>    
+  </ItemTypeAttributes>
+  <!--
+  Table 13
+  -->
+  <ItemTypeGroups>
+    <DeleteAll />
+    <Insert
+      itemtypegroup_id="{E668D600-B9A9-4E9D-9FD1-35B775390B54}" 
+      itemtypegroup_name="Books" 
+      itemtypegroup_description="All types of books"/>
+    <Insert
+      itemtypegroup_id="{1CD03704-C29E-4563-9B4C-4705E764FB6C}"
+      itemtypegroup_name="Music"
+      itemtypegroup_description="All types of music"/>
+    <Insert
+      itemtypegroup_id="{5EE3F695-D9BB-4A99-9EB2-B1F49235BB0F}"
+      itemtypegroup_name="Business Process"
+      itemtypegroup_description="Business Process Level"/>
+    <Insert
+      itemtypegroup_id="{B3F96824-DFE6-4BDF-9758-4EFB4602B43C}"
+      itemtypegroup_name="System"
+      itemtypegroup_description="System Level"/>
+  </ItemTypeGroups>
+  <!--
+  Table 14
+  -->
+  <ItemTypes>
+    <DeleteAll />
+    <Insert
+      itemtype_id="{ADD16FE6-9424-4AF7-834C-12A472172B76}"
+      itemtype_name="Book" 
+      itemtypegroup_id="{E668D600-B9A9-4E9D-9FD1-35B775390B54}" 
+      itemtype_version="1" 
+      itemtype_description="Book item type"/>
+    <Insert
+      itemtype_id="{E847E9C1-D592-4956-B8AA-58FFEF533B1A}"
+      itemtype_name="CD" 
+      itemtypegroup_id="{1CD03704-C29E-4563-9B4C-4705E764FB6C}"
+      itemtype_version="1" 
+      itemtype_description="CD item type"/>
+    <Insert
+      itemtype_id="{B203531D-B458-4743-93CB-B275CFDE3E85}"
+      itemtype_name="Application"
+      itemtypegroup_id="{B3F96824-DFE6-4BDF-9758-4EFB4602B43C}"
+      itemtype_version="1"
+      itemtype_description="Application item type"/>
+    <Insert
+      itemtype_id="{125E8FB0-4680-49BA-9D19-D7D56F1BE248}"
+      itemtype_name="Database"
+      itemtypegroup_id="{B3F96824-DFE6-4BDF-9758-4EFB4602B43C}"
+      itemtype_version="1"
+      itemtype_description="Database item type"/>    
+  </ItemTypes>
+  <!--
+  Table 15
+  -->
+  <LogFunctions>
+    <DeleteAll />
+    <Insert 
+      logfunction_id="1" 
+      logfunction_name="Insert" 
+      logfunction_description=""/>
+    <Insert
+      logfunction_id="2" 
+      logfunction_name="Update" 
+      logfunction_description=""/>
+    <Insert
+      logfunction_id="3" 
+      logfunction_name="Delete" 
+      logfunction_description=""/>
+  </LogFunctions>
+
+  <!--
+  -->
+  <UsageAttributes>
+    <DeleteAll />
+    <Insert
+      usageattribute_id="1"
+      usageattribute_name="IsRequired"       
+      usageattribute_description="Attribute is required."/>
+    <Insert
+      usageattribute_id="2"
+      usageattribute_name="IsReadOnly"       
+      usageattribute_description="Attribute is read only."/>
+    <Insert
+      usageattribute_id="4"
+      usageattribute_name="IsPassword"       
+      usageattribute_description="Attribute is password field."/>
+    <Insert
+      usageattribute_id="8"
+      usageattribute_name="IsInitOnly"       
+      usageattribute_description="Attribute can only be written once.  Then read only."/>
+    <Insert
+      usageattribute_id="16"
+      usageattribute_name="IsUpperCase"      
+      usageattribute_description="Attribute is upper case."/>
+    <Insert
+      usageattribute_id="32"
+      usageattribute_name="IsSortable"       
+      usageattribute_description="Attribute is suitable for sorting."/>
+    <Insert
+      usageattribute_id="64"
+      usageattribute_name="IsQueryKeyOk"     
+      usageattribute_description="Attribute is suitable for query key."/>
+    <Insert 
+      usageattribute_id="128"
+      usageattribute_name="IsQueryFilterOk"  
+      usageattribute_description="Attribute is suitable for query filter"/>
+    <Insert 
+      usageattribute_id="256"
+      usageattribute_name="IsMultiValued"    
+      usageattribute_description="Attribute may have more than one value."/>
+    <Insert
+      usageattribute_id="512"
+      usageattribute_name="UsageAttribute10" 
+      usageattribute_description="Usage Attribute 10.  Available."/>
+    <Insert
+      usageattribute_id="1024"
+      usageattribute_name="UsageAttribute11" 
+      usageattribute_description="Usage Attribute 11.  Available."/>
+    <Insert
+      usageattribute_id="2048"
+      usageattribute_name="UsageAttribute12" 
+      usageattribute_description="Usage Attribute 12.  Available."/>
+    <Insert
+      usageattribute_id="4096"
+      usageattribute_name="UsageAttribute13" 
+      usageattribute_description="Usage Attribute 13.  Available."/>
+    <Insert
+      usageattribute_id="8192"
+      usageattribute_name="UsageAttribute14" 
+      usageattribute_description="Usage Attribute 14.  Available."/>
+    <Insert 
+      usageattribute_id="16384"
+      usageattribute_name="UsageAttribute15" 
+      usageattribute_description="Usage Attribute 15.  Available."/>
+    <Insert
+      usageattribute_id="32768"
+      usageattribute_name="UsageAttribute16" 
+      usageattribute_description="Usage Attribute 16.  Available."/>
+    <Insert
+      usageattribute_id="65536"
+      usageattribute_name="UsageAttribute17" 
+      usageattribute_description="Usage Attribute 17.  Available."/>
+    <Insert
+      usageattribute_id="131072"
+      usageattribute_name="UsageAttribute18" 
+      usageattribute_description="Usage Attribute 18.  Available."/>
+    <Insert
+      usageattribute_id="262144"
+      usageattribute_name="UsageAttribute19" 
+      usageattribute_description="Usage Attribute 19.  Available."/>
+    <Insert
+      usageattribute_id="524288"
+      usageattribute_name="UsageAttribute20" 
+      usageattribute_description="Usage Attribute 20.  Available."/>
+    <Insert
+      usageattribute_id="1048576"
+      usageattribute_name="UsageAttribute21" 
+      usageattribute_description="Usage Attribute 21.  Available."/>
+    <Insert
+      usageattribute_id="2097152"
+      usageattribute_name="UsageAttribute22" 
+      usageattribute_description="Usage Attribute 22.  Available."/>
+    <Insert
+      usageattribute_id="4194304"
+      usageattribute_name="UsageAttribute23" 
+      usageattribute_description="Usage Attribute 23.  Available."/>
+    <Insert
+      usageattribute_id="8388608"
+      usageattribute_name="UsageAttribute24" 
+      usageattribute_description="Usage Attribute 24.  Available."/>
+    <Insert
+      usageattribute_id="16777216"
+      usageattribute_name="UsageAttribute25"
+      usageattribute_description="Usage Attribute 25.  Available."/>
+    <Insert
+      usageattribute_id="33554432"
+      usageattribute_name="UsageAttribute26" 
+      usageattribute_description="Usage Attribute 26.  Available."/>
+    <Insert 
+      usageattribute_id="67108864"
+      usageattribute_name="UsageAttribute27" 
+      usageattribute_description="Usage Attribute 27.  Available."/>
+    <Insert
+      usageattribute_id="134217728"
+      usageattribute_name="UsageAttribute28" 
+      usageattribute_description="Usage Attribute 28.  Available."/>
+    <Insert 
+      usageattribute_id="268435456"
+      usageattribute_name="UsageAttribute29" 
+      usageattribute_description="Usage Attribute 29.  Available."/>
+    <Insert
+      usageattribute_id="536870912"
+      usageattribute_name="UsageAttribute30" 
+      usageattribute_description="Usage Attribute 30.  Available."/>
+    <Insert
+      usageattribute_id="1073741824"
+      usageattribute_name="UsageAttribute31" 
+      usageattribute_description="Usage Attribute 31.  Available."/>
+    <!--<UsageAttribute id="2147483648" name="UsageAttribute32" description="Usage Attribute 32.  Available."/>-->
+  </UsageAttributes>
+</ODB>

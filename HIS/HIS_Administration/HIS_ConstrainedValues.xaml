@@ -1,0 +1,68 @@
+﻿<Window x:Class="HIS_Administration.HIS_ConstrainedValues"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="HIS_ConstrainedValues" Height="500" Width="1200" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:my="clr-namespace:HIS.Library;assembly=HIS.Library" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="constrainedValuesECLViewSource" d:DesignSource="{d:DesignInstance my:ConstrainedValuesECL}" />
+        <CollectionViewSource x:Key="constrainedValueListsECLViewSource" d:DesignSource="{d:DesignInstance my:ConstrainedValueListsECL}" />
+        <!--<CollectionViewSource x:Key="constrainedValuesECLViewSource" d:DesignSource="{d:DesignInstance my:ConstrainedValuesECL}" />-->
+    </Window.Resources>
+    <Grid ShowGridLines="True" DataContext="{Binding}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
+            <Button Name="btnLoadHISSchema" Content="Load HIS Schema" Height="23" HorizontalAlignment="Left" Click="btnLoadHISSchema_Click" />
+            <Label Name="lblLoadTimeHISSchema" Content="Total" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Label Name="lblLoadTimeTotal" Content="Total" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" >
+            <Label Name="lblConstrainedValueLists" Content="ConstrainedValueLists" Height="28" />
+            <DataGrid AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Name="constrainedValueListsECLDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected"  CanUserSortColumns="True" SelectionChanged="constrainedValueListsECLDataGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="dataTypeIdColumn" Binding="{Binding Path=DataTypeId}" Header="Data Type Id" Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="descriptionColumn" Binding="{Binding Path=Description}" Header="Description" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="idColumn" Binding="{Binding Path=Id}" Header="Id" Width="SizeToCells" />
+                    <DataGridTemplateColumn x:Name="lastChangedColumn" Header="Last Changed" Width="SizeToCells">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Path=LastChanged, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Path=Name}" Header="Name" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="nbrItemsColumn" Binding="{Binding Path=NbrItems}" Header="Nbr Items" Width="SizeToHeader" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <Label Name="lblConstrainedValues" Grid.Row="2" Grid.ColumnSpan="2" Content="ConstrainedValues" Height="28" />
+        <ScrollViewer CanContentScroll="True" Grid.Row="3" Grid.ColumnSpan="2">           
+        <!--<StackPanel  >-->
+            <!--<DataGrid AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource constrainedValuesECLViewSource}}" Name="constrainedValuesECLDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" CanUserSortColumns="True" >-->
+            <DataGrid AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding ElementName=constrainedValueListsECLDataGrid, Path=SelectedItem.idColumn}" Name="constrainedValuesECLDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" CanUserSortColumns="True" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="constrainedValueListIdColumn" Binding="{Binding Path=ConstrainedValueListId}" Header="Constrained Value List Id" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="descriptionColumn1" Binding="{Binding Path=Description}" Header="Description" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="idColumn1" Binding="{Binding Path=Id}" Header="Id" Width="SizeToCells" />
+                    <DataGridTemplateColumn x:Name="lastChangedColumn1" Header="Last Changed" Width="SizeToCells">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Path=LastChanged, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn x:Name="ordinalColumn" Binding="{Binding Path=Ordinal}" Header="Ordinal" Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="valueColumn" Binding="{Binding Path=Value}" Header="Value" Width="SizeToCells" />
+                </DataGrid.Columns>
+            </DataGrid>
+        <!--</StackPanel>-->            
+        </ScrollViewer>
+    </Grid>
+</Window>

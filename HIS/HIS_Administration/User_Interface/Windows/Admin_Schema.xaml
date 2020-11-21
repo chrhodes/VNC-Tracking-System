@@ -1,0 +1,60 @@
+﻿<Window x:Class="HIS_Administration.User_Interface.Windows.Admin_Schema"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:my="clr-namespace:HIS.Library;assembly=HIS.Library" 
+        mc:Ignorable="d"        
+        Title="Admin_Schema"
+        Height="500" Width="1000"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded" xmlns:my1="clr-namespace:HIS_Administration.User_Interface.User_Controls" Background="Red">
+    <Window.Resources>
+        <CollectionViewSource x:Key="typesECBLViewSource" d:DesignSource="{d:DesignInstance my:TypesECBL}" />
+        <CollectionViewSource x:Key="attributesECBLViewSource" d:DesignSource="{d:DesignInstance my:AttributesECBL}" />
+        <CollectionViewSource x:Key="typeAttributesECBLViewSource" d:DesignSource="{d:DesignInstance my:TypeAttributesECBL}" />
+        <CollectionViewSource x:Key="characteristicsECBLViewSource" d:DesignSource="{d:DesignInstance my:CharacteristicsECBL}" />
+        <CollectionViewSource x:Key="dataTypesECBLViewSource" d:DesignSource="{d:DesignInstance my:DataTypesECBL}" />
+        <CollectionViewSource x:Key="tablesECBLViewSource" d:DesignSource="{d:DesignInstance my:TablesECBL}" />
+    </Window.Resources>
+    <DockPanel >
+        <Border DockPanel.Dock="Left" Margin="5"
+            BorderBrush="Black"
+            BorderThickness="2" Background="White">
+            <StackPanel Width="150">
+                <my1:CylonEyeBall x:Name="cylonEyeBall1" HorizontalAlignment="Stretch" Margin="5"/>
+                <Button Name="btnAttributes" 
+                        Content="Attributes" Height="30" Margin="5"
+                        Click="btnAttributes_Click"/>
+                <Button Name="btnCharacteristics" 
+                        Content="Characteristics" Height="30" Margin="5"
+                        Click="btnCharacteristics_Click"/>
+                <Button Name="btnConstrainedValues"
+                        Content="ConstrainedValues" Height="30" Margin="5"
+                        Click="btnConstrainedValues_Click"/>
+                <Button Name="btnConstrainedValueLists"
+                        Content="ConstrainedValueLists" Height="30" Margin="5"
+                        Click="btnConstrainedValueLists_Click"/>
+                <Button Name="btnDataTypes"
+                        Content="DataTypes" Height="30" Margin="5"
+                        Click="btnDataTypes_Click"/>
+                <Button Name="btnTables"
+                        Content="Tables" Height="30" Margin="5"
+                        Click="btnTables_Click"/>
+                <Button Name="btnTypeAttributes"
+                        Content="TypeAttributes" Height="30" Margin="5"
+                        Click="btnTypeAttributes_Click"/>
+                <Button Name="btnTypes"
+                        Content="Types" Height="30" Margin="5"
+                        Click="btnTypes_Click"/>               
+            </StackPanel>
+        </Border>
+        <Border DockPanel.Dock="Right" Margin="0,5,5,5"
+                BorderBrush="Black"
+                BorderThickness="2" Background="White">
+            <DockPanel  Name="dpUserControlContainer" >
+            <!-- User Controls get loaded here -->
+            </DockPanel>
+        </Border>
+    </DockPanel>
+</Window>

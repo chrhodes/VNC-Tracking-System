@@ -1,0 +1,140 @@
+﻿<Window x:Class="HIS_Administration.HIS_SchemaECL_ChildLoad"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+Title="HIS_Schema" Height="845" Width="1120" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:my="clr-namespace:HIS.Library;assembly=HIS.Library" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="typesECLViewSource" d:DesignSource="{d:DesignInstance my:TypesECL}" />
+        <CollectionViewSource x:Key="attributesECLViewSource" d:DesignSource="{d:DesignInstance my:AttributesECL}" />
+        <CollectionViewSource x:Key="typeAttributesECLViewSource" d:DesignSource="{d:DesignInstance my:TypeAttributesECL}" />
+        <CollectionViewSource x:Key="characteristicsECLViewSource" d:DesignSource="{d:DesignInstance my:CharacteristicsECL}" />
+        <CollectionViewSource x:Key="dataTypesECLViewSource" d:DesignSource="{d:DesignInstance my:DataTypesECL}" />
+        <CollectionViewSource x:Key="tablesECLViewSource" d:DesignSource="{d:DesignInstance my:TablesECL}" />
+    </Window.Resources>
+    <!--<Grid DataContext="{StaticResource typesECLViewSource}">-->
+    <Grid ShowGridLines="True" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
+            <Button Name="btnLoadHISSchema" Content="Load HIS Schema" Height="23" HorizontalAlignment="Left" Click="btnLoadHISSchema_Click" />
+            <Label Name="lblLoadTimeHISSchema" Content="Total" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Label Name="lblLoadTimeTotal" Content="Total" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" >
+            <Label Name="lblAttributes" Content="Attributes" Height="28" />
+            <DataGrid Name="attributesECLDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" Height="100" ItemsSource="{Binding Source={StaticResource attributesECLViewSource}}" RowDetailsVisibilityMode="VisibleWhenSelected" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="idColumn1" Binding="{Binding Path=Id}" Header="Id" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="nameColumn1" Binding="{Binding Path=Name}" Header="Name" Width="SizeToCells" />
+                    <DataGridTemplateColumn x:Name="lastChangedColumn1" Header="Last Changed" Width="SizeToHeader">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Path=LastChanged, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Name="lblTypes" Content="Types" Height="28" />
+            <DataGrid Name="typesECLDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" Height="100" ItemsSource="{Binding Source={StaticResource typesECLViewSource}}" RowDetailsVisibilityMode="VisibleWhenSelected" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="idColumn" Binding="{Binding Path=Id}" Header="Id" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Path=Name}" Header="Name" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="descriptionColumn" Binding="{Binding Path=Description}" Header="Description" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="characteristicsColumn" Binding="{Binding Path=Characteristics}" Header="Characteristics" Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="versionColumn" Binding="{Binding Path=Version}" Header="Version" Width="SizeToHeader" />
+                    <DataGridTemplateColumn x:Name="lastChangedColumn" Header="Last Changed" Width="SizeToHeader">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Path=LastChanged, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label Name="lblTypeAttributes" Content="TypeAttributes" Height="28" HorizontalAlignment="Left" />
+            <DataGrid Name="typeAttributesECLDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" Height="100" ItemsSource="{Binding Source={StaticResource typeAttributesECLViewSource}}" RowDetailsVisibilityMode="VisibleWhenSelected" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="idColumn2" Binding="{Binding Path=Id}" Header="Id" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="attributeIdColumn" Binding="{Binding Path=AttributeId}" Header="Attribute Id" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="typeIdColumn" Binding="{Binding Path=TypeId}" Header="Type Id" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="characteristicsColumn1" Binding="{Binding Path=Characteristics}" Header="Characteristics" Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="dataTypeIdColumn" Binding="{Binding Path=DataTypeId}" Header="Data Type Id" Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="descriptionColumn1" Binding="{Binding Path=Description}" Header="Description" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="versionColumn1" Binding="{Binding Path=Version}" Header="Version" Width="SizeToHeader" />
+                    <DataGridTemplateColumn x:Name="lastChangedColumn2" Header="Last Changed" Width="SizeToHeader">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Path=LastChanged, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="0">
+            <Label Name="lblCharacteristics" Content="Characteristics" Height="28" VerticalAlignment="Top"  />
+            <DataGrid Name="characteristicsECLDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" Height="100" ItemsSource="{Binding Source={StaticResource characteristicsECLViewSource}}" RowDetailsVisibilityMode="VisibleWhenSelected" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="idColumn3" Binding="{Binding Path=Id}" Header="Id" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="nameColumn2" Binding="{Binding Path=Name}" Header="Name" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="descriptionColumn2" Binding="{Binding Path=Description}" Header="Description" Width="SizeToCells" />
+                    <DataGridTemplateColumn x:Name="lastChangedColumn3" Header="Last Changed" Width="SizeToHeader">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Path=LastChanged, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <Label Name="lblDataTypes" Content="DataTypes" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            <DataGrid Name="dataTypesECLDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" Height="100" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource dataTypesECLViewSource}}" RowDetailsVisibilityMode="VisibleWhenSelected" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="idColumn4" Binding="{Binding Path=Id}" Header="Id" Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="nameColumn3" Binding="{Binding Path=Name}" Header="Name" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="descriptionColumn3" Binding="{Binding Path=Description}" Header="Description" Width="SizeToCells" />
+                    <DataGridTemplateColumn x:Name="lastChangedColumn4" Header="Last Changed" Width="SizeToHeader">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Path=LastChanged, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2">
+            <Label Name="lblTables" Content="Tables" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            <DataGrid Name="tablesECLDataGrid"  AutoGenerateColumns="False" EnableRowVirtualization="True" Height="100" HorizontalAlignment="Stretch" ItemsSource="{Binding Source={StaticResource tablesECLViewSource}}" RowDetailsVisibilityMode="VisibleWhenSelected" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="idColumn5" Binding="{Binding Path=Id}" Header="Id" Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="nameColumn4" Binding="{Binding Path=Name}" Header="Name" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="descriptionColumn4" Binding="{Binding Path=Description}" Header="Description" Width="SizeToCells" />
+                    <DataGridTextColumn x:Name="versionColumn2" Binding="{Binding Path=Version}" Header="Version" Width="SizeToHeader" />
+                    <DataGridTemplateColumn x:Name="lastChangedColumn5" Header="Last Changed" Width="SizeToHeader">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Path=LastChanged, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>

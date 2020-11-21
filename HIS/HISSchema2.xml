@@ -1,0 +1,1049 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+-->
+<HIS>
+  <!--
+  Table 1
+  -->
+  <Tables>
+    <DeleteAll />
+    <Insert
+      table_id="1"
+      name="Tables"
+      version="1"
+      description="Contains the list of tables in the HIS database and their current version."/>
+    <Insert
+      table_id="2"
+      name="ActivityLog"
+      version="1"
+      description="Records all {Insert|Update|Delete} activity and who performed it and when."/>
+    <Insert
+      table_id="3"
+      name="LogFunctions"
+      version="1"
+      description="Defines the type of logging actions supported."/>
+     <Insert
+      table_id="4"
+      name="Attributes"
+      version="1"
+      description="Defines the attribute names that are supported by the system.  TypeAttributes defines more about a specific attribute in the context of an item."/>
+    <Insert
+      table_id="5"
+      name="Types"
+      version="1"
+      description="Defines the types of items supported by the ODB."/>
+    <Insert
+      table_id="6"
+      name="TypeAttributes"
+      version="1"
+      description="Defines the particular attributes and their characteristics that apply to a specific type of item."/>
+    <Insert
+      table_id="7"
+      name="Characteristics"
+      version="1"
+      description="Defines the usage characteristics of a TypeAttribute.  characteristics is a bit field of values defined in this table."/>
+    <Insert
+      table_id="8"
+      name="DataTypes"
+      version="1"
+      description="Defines the datatypes supported by the HIS."/>
+    <Insert
+      table_id="9"
+      name="Items"
+      version="1"
+      description="One row for every item tracked in the HIS.  This table, along with AttributeValues, is the main table in the HIS."/>       
+    <Insert
+      table_id="10"
+      name="AttributeValues"
+      version="1"
+      description="One row for every attribute value applied to a specific item in a specific table.  This table along with Items is the main table in the HIS."/>
+    <Insert
+      table_id="11"
+      name="ConstrainedValueLists"
+      version="1"
+      description="Defines the CVLs supported by the HIS."/>
+    <Insert
+      table_id="12"
+      name="ConstrainedValues"
+      version="1"
+      description="One row for every allowed value in a particular CVL."/>
+  </Tables>
+  <!--
+  Table 2 is ActivityLog table.
+  -->
+  <!--
+  Table 3
+  -->
+  <LogFunctions>
+    <DeleteAll />
+    <Insert
+      logfunction_id="1"
+      name="Insert"
+      description=""/>
+    <Insert
+      logfunction_id="2"
+      name="Update"
+      description=""/>
+    <Insert
+      logfunction_id="3"
+      name="Delete"
+      description=""/>
+  </LogFunctions>
+  <!--
+  Table 4
+  -->
+  <Attributes>
+    <DeleteAll />
+    <Insert
+      attribute_id="{39D0F1A0-0FF0-4BC9-8FBF-69599B6818D7}"
+      name="arbook" />
+    <Insert
+      attribute_id="{C937648B-3D1E-4D26-A9A4-350CCEE9FF42}"
+      name="artist" />
+    <Insert
+      attribute_id="{60F8104D-338E-481E-95C7-47160538163B}"
+      name="author" />
+    <Insert
+      attribute_id="{243BD1EA-6C77-4A63-A656-2EA02857AF1F}"
+      name="bookinstance" />
+    <Insert
+      attribute_id="{EFBBECF9-C5FA-4D28-8804-046CF1171F6A}"
+       name="character" />
+    <Insert
+      attribute_id="{87464725-2EF3-45FA-9B1B-D84A8536412A}"
+      name="comments" />
+    <Insert
+      attribute_id="{2DBBDF74-E2FA-45A3-9ADA-79FF3F3415F7}"
+      name="copyright" />
+    <Insert
+      attribute_id="{08E96E9B-BE6E-4227-B791-120D9E8A763C}"
+      name="firstname" />
+    <Insert
+      attribute_id="{DF33F608-CAEE-4600-8610-7CB894CE466A}"
+      name="format" />
+    <Insert
+      attribute_id="{63D15911-09D0-4133-A897-C67994A75A00}"
+      name="forwhom" />
+    <Insert
+      attribute_id="{C5DE4B07-F304-4874-B4B9-C870793D92DC}"
+      name="genre" />
+    <Insert
+      attribute_id="{F34A6E13-5028-4976-A5FE-452EC9ECCECE}"
+      name="isbn" />
+    <Insert
+      attribute_id="{F488FB26-B858-4511-8D79-0C5E90D74FA9}"
+      name="lastname" />
+    <Insert
+      attribute_id="{D8C63F06-A2B2-4E32-8C43-3AB2EE9C399E}"
+      name="level" />
+    <Insert
+      attribute_id="{532AEA14-5311-46C3-B167-BEAE62B828CD}"
+      name="loan" />
+    <Insert
+      attribute_id="{0566EA83-90EC-4BA4-80AA-AEE920FEBC92}"
+      name="loandate" />
+    <Insert
+      attribute_id="{14646939-D6DF-46AF-B46E-71494D30DA36}"
+      name="loanto" />
+    <Insert
+      attribute_id="{131FA1EE-288B-43D5-9C17-8A0E7CCDFBBA}"
+      name="locale" />
+    <Insert
+      attribute_id="{DB4F7FFF-D9A2-481E-84D3-504F3DDB4B76}"
+      name="location" />
+    <Insert
+      attribute_id="{5C2C0F21-7CB8-46C0-B31D-9E16443C0130}"
+      name="middlename" />
+    <Insert
+      attribute_id="{5BC6F192-B5FA-4D0A-BB09-FFA7A5F48ADD}"
+       name="owner" />
+    <Insert
+      attribute_id="{E82A4F7D-1996-48F0-AFAF-5A1FBCD1E310}"
+      name="points" />
+    <Insert
+      attribute_id="{FBCFCE72-51CF-4117-BE3D-A0EFC6C2945E}"
+      name="publisher" />
+    <Insert
+      attribute_id="{4A39314E-E814-4D96-AC51-68AC4D884BC5}"
+      name="rating" />
+    <Insert
+      attribute_id="{C2EEBA14-4C27-4EC0-A6CD-A9FBE29E7898}"
+      name="read" />
+    <Insert
+      attribute_id="{E30787F0-A3B9-412C-8BE8-91A71E2EA186}"
+      name="readby" />
+    <Insert
+      attribute_id="{F8353898-DAF0-44AE-BBF0-F991D16D2B59}"
+      name="readdate" />
+    <Insert
+      attribute_id="{2C673267-A57C-48B3-835C-0344BE9BE277}"
+      name="recommendation" />
+    <Insert
+      attribute_id="{1C82B2B1-19A5-480E-A4A5-4FA81AF804E5}"
+       name="returndate" />
+    <Insert
+      attribute_id="{0991FE2E-7FC8-491A-B211-13DCB54CA673}"
+      name="score" />
+    <Insert
+      attribute_id="{C694ACCB-EA31-44FD-9C6D-52FB43BFD78A}"
+      name="story" />
+    <Insert
+      attribute_id="{D7AEF902-2B31-4850-AAB9-A41751005885}"
+      name="storyline" />
+    <Insert
+      attribute_id="{496A55CE-22E6-4ABD-9069-0DEC3E0FB85F}"
+      name="suffix" />
+    <Insert
+      attribute_id="{30631432-1EA5-4264-84C6-32CA2662389E}"
+      name="theme" />
+    <Insert
+      attribute_id="{347FC721-6920-4020-93A4-942A82F0FBEB}"
+      name="title" />
+    <Insert
+      attribute_id="{495587DB-5B69-4052-9412-48DBC76E0622}"
+      name="begin" />
+    <Insert
+      attribute_id="{44B7E551-57DC-4239-8E8B-E6EA23A54245}"
+      name="end" />
+    <Insert
+      attribute_id="{142EEFB6-5A5E-4F11-82B4-69943B3643CD}"
+      name="head" />
+    <Insert
+      attribute_id="{FE20D03A-DB9D-4685-B573-49920291CF3D}"
+      name="tail" />
+    <Insert
+      attribute_id="{EE5F2C05-E0E0-4A22-BBFB-FAB89EF62967}"
+      name="table" />
+    <Insert
+      attribute_id="{4B301596-1823-4407-8136-22C3CF32AC5E}"
+      name="color" />
+    <Insert
+      attribute_id="{2263FFFE-8EDD-40A0-901E-54EEA8651975}"
+      name="radius" />
+  </Attributes>
+  <!--
+  Table 5
+  -->
+  <Types>
+    <DeleteAll />
+    <Insert
+      type_id="{ADD16FE6-9424-4AF7-834C-12A472172B76}"
+      name="Book"
+      characteristics="1"
+      version="1"
+      description="Book item type"/>
+    <Insert
+      type_id="{E847E9C1-D592-4956-B8AA-58FFEF533B1A}"
+      name="CD"
+      characteristics="1"      
+      version="1"
+      description="CD item type"/>
+    <Insert
+      type_id="{B203531D-B458-4743-93CB-B275CFDE3E85}"
+      name="Application"
+      characteristics="1"      
+      version="1"
+      description="Application item type"/>
+    <Insert
+      type_id="{125E8FB0-4680-49BA-9D19-D7D56F1BE248}"
+      name="Database"
+      characteristics="1"      
+      version="1"
+      description="Database item type"/>
+    <Insert
+      type_id="{345B4A43-C7E4-46E6-9182-15A7419F29B9}"
+      name="Item"
+      characteristics="1"      
+      version="1"
+      description="An Item"/>
+    <Insert
+      type_id="{8F3599CF-24E2-4100-AB51-2520EE7DEB87}"
+      name="Association"
+      characteristics="1"      
+      version="1"
+      description="An Association (Relation) (Edge)"/>
+  </Types>
+  <!--
+  Table 6
+  -->
+  <TypeAttributes>
+    <DeleteAll />
+    <!-- Book -->
+    <Insert
+      typeattribute_id="{9EB2AF26-6AB7-4105-9BE7-0793F12AD78B}"
+      type_id="{ADD16FE6-9424-4AF7-834C-12A472172B76}"
+      attribute_id="{60F8104D-338E-481E-95C7-47160538163B}"
+      characteristics="3"
+      datatype_id="2"
+      version="1"
+      description="Author"/>
+    <!-- CD -->
+    <Insert
+      typeattribute_id="{15C71E50-6524-4E39-9F4B-5BABAB6EED03}"
+      type_id="{E847E9C1-D592-4956-B8AA-58FFEF533B1A}"
+      attribute_id="{C937648B-3D1E-4D26-A9A4-350CCEE9FF42}"
+      characteristics="3"
+      datatype_id="2"
+      version="1"
+      description="Artist"/>
+    <!-- Node as Type -->
+    <Insert
+      typeattribute_id="{E935BC2C-C7B2-4511-A11D-7D003FA1D3FF}"
+      type_id="{345B4A43-C7E4-46E6-9182-15A7419F29B9}"
+      attribute_id="{2263FFFE-8EDD-40A0-901E-54EEA8651975}"
+      characteristics="3"
+      datatype_id="8"
+      version="1"
+      description="Node Radius"/>
+    <!-- Edge as Type -->
+    <Insert
+      typeattribute_id="{BFE141E6-5415-44B3-8C30-CF9780585E5A}"
+      type_id="{8F3599CF-24E2-4100-AB51-2520EE7DEB87}"
+      attribute_id="{495587DB-5B69-4052-9412-48DBC76E0622}"
+      characteristics="3"
+      datatype_id="5"
+      version="1"
+      description="Begin ID"/>
+    <Insert
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      type_id="{8F3599CF-24E2-4100-AB51-2520EE7DEB87}"
+      attribute_id="{44B7E551-57DC-4239-8E8B-E6EA23A54245}"
+      characteristics="3"
+      datatype_id="5"
+      version="1"
+      description="End ID"/>
+    <Insert
+      typeattribute_id="{4B226610-2F16-4E4F-96E2-DBB86E641840}"
+      type_id="{8F3599CF-24E2-4100-AB51-2520EE7DEB87}"
+      attribute_id="{4B301596-1823-4407-8136-22C3CF32AC5E}"
+      characteristics="3"
+      datatype_id="2"
+      version="1"
+      description="Edge Color"/>
+  </TypeAttributes>
+  <!--
+  Table 7
+  -->
+  <Characteristics>
+    <DeleteAll />
+    <Insert
+      characteristic_id="1"
+      name="IsRequired"
+      description="Attribute is required."/>
+    <Insert
+      characteristic_id="2"
+      name="IsReadOnly"
+      description="Attribute is read only."/>
+    <Insert
+      characteristic_id="4"
+      name="IsPassword"
+      description="Attribute is password field."/>
+    <Insert
+      characteristic_id="8"
+      name="IsInitOnly"
+      description="Attribute can only be written once.  Then read only."/>
+    <Insert
+      characteristic_id="16"
+      name="IsUpperCase"
+      description="Attribute is upper case."/>
+    <Insert
+      characteristic_id="32"
+      name="IsSortable"
+      description="Attribute is suitable for sorting."/>
+    <Insert
+      characteristic_id="64"
+      name="IsQueryKeyOk"
+      description="Attribute is suitable for query key."/>
+    <Insert
+      characteristic_id="128"
+      name="IsQueryFilterOk"
+      description="Attribute is suitable for query filter"/>
+    <Insert
+      characteristic_id="256"
+      name="IsMultiValued"
+      description="Attribute may have more than one value."/>
+    <Insert
+      characteristic_id="512"
+      name="Characteristic10"
+      description="Characteristic 10.  Available."/>
+    <Insert
+      characteristic_id="1024"
+      name="Characteristic11"
+      description="Characteristic 11.  Available."/>
+    <Insert
+      characteristic_id="2048"
+      name="Characteristic12"
+      description="Characteristic 12.  Available."/>
+    <Insert
+      characteristic_id="4096"
+      name="Characteristic13"
+      description="Characteristic 13.  Available."/>
+    <Insert
+      characteristic_id="8192"
+      name="Characteristic14"
+      description="Characteristic 14.  Available."/>
+    <Insert
+      characteristic_id="16384"
+      name="Characteristic15"
+      description="Characteristic 15.  Available."/>
+    <Insert
+      characteristic_id="32768"
+      name="Characteristic16"
+      description="Characteristic 16.  Available."/>
+    <Insert
+      characteristic_id="65536"
+      name="Characteristic17"
+      description="Characteristic 17.  Available."/>
+    <Insert
+      characteristic_id="131072"
+      name="Characteristic18"
+      description="Characteristic 18.  Available."/>
+    <Insert
+      characteristic_id="262144"
+      name="Characteristic19"
+      description="Characteristic 19.  Available."/>
+    <Insert
+      characteristic_id="524288"
+      name="Characteristic20"
+      description="Characteristic 20.  Available."/>
+    <Insert
+      characteristic_id="1048576"
+      name="Characteristic21"
+      description="Characteristic 21.  Available."/>
+    <Insert
+      characteristic_id="2097152"
+      name="Characteristic22"
+      description="Characteristic 22.  Available."/>
+    <Insert
+      characteristic_id="4194304"
+      name="Characteristic23"
+      description="Characteristic 23.  Available."/>
+    <Insert
+      characteristic_id="8388608"
+      name="Characteristic24"
+      description="Characteristic 24.  Available."/>
+    <Insert
+      characteristic_id="16777216"
+      name="Characteristic25"
+      description="Characteristic 25.  Available."/>
+    <Insert
+      characteristic_id="33554432"
+      name="Characteristic26"
+      description="Characteristic 26.  Available."/>
+    <Insert
+      characteristic_id="67108864"
+      name="Characteristic27"
+      description="Characteristic 27.  Available."/>
+    <Insert
+      characteristic_id="134217728"
+      name="Characteristic28"
+      description="Characteristic 28.  Available."/>
+    <Insert
+      characteristic_id="268435456"
+      name="Characteristic29"
+      description="Characteristic 29.  Available."/>
+    <Insert
+      characteristic_id="536870912"
+      name="Characteristic30"
+      description="Characteristic 30.  Available."/>
+    <Insert
+      characteristic_id="1073741824"
+      name="Characteristic31"
+      description="Characteristic 31.  Available."/>
+  </Characteristics>
+  <!--
+  Table 8
+  -->
+  <DataTypes>
+    <DeleteAll />
+    <Insert
+      datatype_id="1"
+      name="number"
+      description="bigint"/>
+    <Insert
+      datatype_id="2"
+      name="string"
+      description="nvarchar(1024)"/>
+    <Insert
+      datatype_id="3"
+      name="datetime"
+      description="datetime"/>
+    <Insert
+      datatype_id="4"
+      name="money"
+      description="currency"/>
+    <Insert
+      datatype_id="5"
+      name="oid"
+      description="GUID"/>
+    <Insert
+      datatype_id="6"
+      name="image"
+      description="image"/>
+    <Insert
+      datatype_id="7"
+      name="constrainedvalue"
+      description="Constrained Value" />
+    <Insert
+      datatype_id="8"
+      name="single"
+      description="Single precision floating point" />    
+  </DataTypes>
+  <!--
+  Table 9
+  -->
+  <Items>
+    <DeleteAll />
+    <Insert
+      item_id="{46745966-91CA-4125-9212-019E91510AFC}"
+      type_id="{ADD16FE6-9424-4AF7-834C-12A472172B76}"
+      name="C# For Dummies"/>
+    <Insert
+      item_id="{7D4697FC-B1B3-496F-AE57-0E1DDAED5452}"
+      type_id="{ADD16FE6-9424-4AF7-834C-12A472172B76}"      
+      name="VB For Dummies"/>
+    <Insert
+      item_id="{A0B2C41B-D039-46F9-9AB0-29FB33539D21}"
+      type_id="{345B4A43-C7E4-46E6-9182-15A7419F29B9}"
+      name="N1"/>
+    <Insert
+      item_id="{437D6206-A9D2-4A3D-AF51-0770E1B7CA42}"
+      type_id="{345B4A43-C7E4-46E6-9182-15A7419F29B9}"
+      name="N2"/>
+    <Insert
+      item_id="{5A157270-DC2A-487D-B746-ED097017262C}"
+      type_id="{345B4A43-C7E4-46E6-9182-15A7419F29B9}"
+      name="N3"/>
+    <Insert
+      item_id="{8D71E8FF-9CA1-4F42-8D05-1171E7EB5720}"
+      type_id="{345B4A43-C7E4-46E6-9182-15A7419F29B9}"
+      name="N4"/>
+    <Insert
+      item_id="{C01BCDD5-9B5E-44A7-9763-B119AEF4E09A}"
+      type_id="{345B4A43-C7E4-46E6-9182-15A7419F29B9}"
+      name="N5"/>
+    <Insert
+      item_id="{DB531488-2A26-4000-BA0D-1B4E09AB7243}"
+      type_id="{345B4A43-C7E4-46E6-9182-15A7419F29B9}"
+      name="N6"/>
+    <Insert
+      item_id="{9392918F-B734-4F9B-B78D-393E22E2E288}"
+      type_id="{345B4A43-C7E4-46E6-9182-15A7419F29B9}"
+      name="N7"/>
+    <Insert
+      item_id="{C05B66D0-1A6E-4006-9347-C433EB5AC10F}"
+      type_id="{345B4A43-C7E4-46E6-9182-15A7419F29B9}"
+      name="N8"/>
+    <Insert
+      item_id="{E21050B5-87BD-4379-817C-CDAA4CFC2639}"
+      type_id="{345B4A43-C7E4-46E6-9182-15A7419F29B9}"
+      name="N9"/>
+    <Insert
+      item_id="{10A9C06D-C3C9-4268-8AD7-08B4535ECC75}"
+      type_id="{345B4A43-C7E4-46E6-9182-15A7419F29B9}"
+      name="N10"/>
+    <Insert
+      item_id="{B9EAA287-BB99-4347-A5D4-D3B95FB0FEEE}"
+      type_id="{8F3599CF-24E2-4100-AB51-2520EE7DEB87}"
+      name="E1"/>
+    <Insert
+      item_id="{D9E694A8-8A12-49E2-86D4-46258E53F4AF}"
+      type_id="{8F3599CF-24E2-4100-AB51-2520EE7DEB87}"
+      name="E2"/>
+    <Insert
+      item_id="{7A9802AE-AE96-454C-BF53-26E40A2E891B}"
+      type_id="{8F3599CF-24E2-4100-AB51-2520EE7DEB87}"
+      name="E3"/>
+    <Insert
+      item_id="{B2C3BF75-8E6F-449B-BC5E-4C68D766AE73}"
+      type_id="{8F3599CF-24E2-4100-AB51-2520EE7DEB87}"
+      name="E4"/>
+    <Insert
+      item_id="{64344F86-3C38-416D-AB85-DF49B7A951F3}"
+      type_id="{8F3599CF-24E2-4100-AB51-2520EE7DEB87}"
+      name="E5"/>
+    <Insert
+      item_id="{8AF01CBF-C8FF-4879-8D11-58E85DC030DD}"
+      type_id="{8F3599CF-24E2-4100-AB51-2520EE7DEB87}"
+      name="E6"/>
+    <Insert
+      item_id="{D64CEFB0-2751-46FF-ADD4-8F9194A2D798}"
+      type_id="{8F3599CF-24E2-4100-AB51-2520EE7DEB87}"
+      name="E7"/>
+    <Insert
+      item_id="{0D7179D8-C5AC-4567-AC71-0D70526D1E41}"
+      type_id="{8F3599CF-24E2-4100-AB51-2520EE7DEB87}"
+      name="E8"/>
+    <Insert
+      item_id="{A6A41DF0-086B-4B54-9382-4B7A82B80AC0}"
+      type_id="{8F3599CF-24E2-4100-AB51-2520EE7DEB87}"
+      name="E9"/>
+    <Insert
+      item_id="{56B321D5-5DD7-40CF-BED5-AC5570D62DBB}"
+      type_id="{8F3599CF-24E2-4100-AB51-2520EE7DEB87}"
+      name="E10"/>
+  </Items>
+  <!--
+  Table 10
+  -->
+  <AttributeValues>
+    <DeleteAll />
+    <Insert
+      attributevalue_id="{613630C6-FFCD-4B65-A13A-88EBAAF5C881}"
+      table_id="11"
+      item_id="{46745966-91CA-4125-9212-019E91510AFC}"
+      typeattribute_id="{A0ED8F5D-8E4F-43D4-98D0-6FEBD5FF3660}"
+      value="C# for dummies"/>
+    <Insert
+      attributevalue_id="{19CC36DF-D50A-4200-B977-F18417FD066F}"
+      table_id="11"
+      item_id="{7D4697FC-B1B3-496F-AE57-0E1DDAED5452}"
+      typeattribute_id="{9EB2AF26-6AB7-4105-9BE7-0793F12AD78B}"
+      value="John Doe"/>
+    <!-- For Nodes N1 ... N10 -->
+    <Insert
+      attributevalue_id="{8DDF15DD-288A-4431-8CDC-89E296659E60}"
+      table_id="9"
+      item_id="{437D6206-A9D2-4A3D-AF51-0770E1B7CA42}"
+      typeattribute_id="{E935BC2C-C7B2-4511-A11D-7D003FA1D3FF}"
+      value="1.1"/>
+    <Insert
+      attributevalue_id="{2B798557-9F24-45F3-A68A-6577DF8CA937}"
+      table_id="9"
+      item_id="{2B84774E-E61C-45BB-9B0F-EDF70DBF8BD6}"
+      typeattribute_id="{E935BC2C-C7B2-4511-A11D-7D003FA1D3FF}"
+      value="1.2"/>
+    <Insert
+      attributevalue_id="{EAE5766B-737D-46D0-A39B-AC43A5F5EC71}"
+      table_id="9"
+      item_id="{5A157270-DC2A-487D-B746-ED097017262C}"
+      typeattribute_id="{E935BC2C-C7B2-4511-A11D-7D003FA1D3FF}"
+      value="1.3"/>
+    <Insert
+      attributevalue_id="{B350D73D-51FD-4794-9CC8-CEAFB7AEAA7B}"
+      table_id="9"
+      item_id="{8D71E8FF-9CA1-4F42-8D05-1171E7EB5720}"
+      typeattribute_id="{E935BC2C-C7B2-4511-A11D-7D003FA1D3FF}"
+      value="1.4"/>
+    <Insert
+      attributevalue_id="{2D8A6785-336D-40FD-B3FA-BAF0C14ADEB2}"
+      table_id="9"
+      item_id="{C01BCDD5-9B5E-44A7-9763-B119AEF4E09A}"
+      typeattribute_id="{E935BC2C-C7B2-4511-A11D-7D003FA1D3FF}"
+      value="1.5"/>
+    <Insert
+      attributevalue_id="{9636DF2C-91B4-4199-9BF6-E43768C4A6D8}"
+      table_id="9"
+      item_id="{DB531488-2A26-4000-BA0D-1B4E09AB7243}"
+      typeattribute_id="{E935BC2C-C7B2-4511-A11D-7D003FA1D3FF}"
+      value="1.6"/>
+    <Insert
+      attributevalue_id="{C40EF329-EBA8-4C0F-804A-5EC9D8232F39}"
+      table_id="9"
+      item_id="{9392918F-B734-4F9B-B78D-393E22E2E288}"
+      typeattribute_id="{E935BC2C-C7B2-4511-A11D-7D003FA1D3FF}"
+      value="1.7"/>
+    <Insert
+      attributevalue_id="{EA264429-2B1E-4315-8CFA-A3A3E8082403}"
+      table_id="9"
+      item_id="{C05B66D0-1A6E-4006-9347-C433EB5AC10F}"
+      typeattribute_id="{E935BC2C-C7B2-4511-A11D-7D003FA1D3FF}"
+      value="1.8"/>
+    <Insert
+      attributevalue_id="{868C3ED7-D18E-43C9-9BE2-77B6C84372DA}"
+      table_id="9"
+      item_id="{E21050B5-87BD-4379-817C-CDAA4CFC2639}"
+      typeattribute_id="{E935BC2C-C7B2-4511-A11D-7D003FA1D3FF}"
+      value="1.9"/>
+    <Insert
+      attributevalue_id="{A89B3C36-C480-4305-B19C-36DC980198C9}"
+      table_id="9"
+      item_id="{10A9C06D-C3C9-4268-8AD7-08B4535ECC75}"
+      typeattribute_id="{E935BC2C-C7B2-4511-A11D-7D003FA1D3FF}"
+      value="1.10"/>
+    <!-- For Edges E1 ... E10 -->
+    <!-- E1 -->
+    <Insert
+      attributevalue_id="{E5E8B9B0-7CC6-447A-960C-E1AA8A489544}"
+      table_id="9"
+      item_id="{B9EAA287-BB99-4347-A5D4-D3B95FB0FEEE}"
+      typeattribute_id="{BFE141E6-5415-44B3-8C30-CF9780585E5A}"
+      value="{A0B2C41B-D039-46F9-9AB0-29FB33539D21}"/>
+    <Insert
+      attributevalue_id="{75F916F7-918F-43EF-9E7F-2B2872FB57E9}"
+      table_id="9"
+      item_id="{B9EAA287-BB99-4347-A5D4-D3B95FB0FEEE}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{437D6206-A9D2-4A3D-AF51-0770E1B7CA42}"/>
+    <Insert
+      attributevalue_id="{E199DC3A-B411-47EC-8453-2BD32F0AA31A}"
+      table_id="9"
+      item_id="{B9EAA287-BB99-4347-A5D4-D3B95FB0FEEE}"
+      typeattribute_id="{4B226610-2F16-4E4F-96E2-DBB86E641840}"
+      value="Black"/>
+    <!-- E2 -->
+    <Insert
+      attributevalue_id="{547FA568-754A-4355-BCF3-77F5063FF110}"
+      table_id="9"
+      item_id="{D9E694A8-8A12-49E2-86D4-46258E53F4AF}"
+      typeattribute_id="{BFE141E6-5415-44B3-8C30-CF9780585E5A}"
+      value="{437D6206-A9D2-4A3D-AF51-0770E1B7CA42}"/>
+    <Insert
+      attributevalue_id="{0132F21C-6276-48A7-8F98-4A12AD0F8E42}"
+      table_id="9"
+      item_id="{D9E694A8-8A12-49E2-86D4-46258E53F4AF}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{5A157270-DC2A-487D-B746-ED097017262C}"/>
+    <Insert
+      attributevalue_id="{441066ED-9720-49B5-BB51-EB714FD89633}"
+      table_id="9"
+      item_id="{D9E694A8-8A12-49E2-86D4-46258E53F4AF}"
+      typeattribute_id="{4B226610-2F16-4E4F-96E2-DBB86E641840}"
+      value="Black"/>    
+    <!-- E3 -->
+    <Insert
+      attributevalue_id="{781467BF-7BE3-46F5-80FE-CB05879B367E}"
+      table_id="9"
+      item_id="{7A9802AE-AE96-454C-BF53-26E40A2E891B}"
+      typeattribute_id="{BFE141E6-5415-44B3-8C30-CF9780585E5A}"
+      value="{5A157270-DC2A-487D-B746-ED097017262C}"/>
+    <Insert
+      attributevalue_id="{D35941BB-4BA4-476C-81A0-AC39E9C3A439}"
+      table_id="9"
+      item_id="{7A9802AE-AE96-454C-BF53-26E40A2E891B}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{8D71E8FF-9CA1-4F42-8D05-1171E7EB5720}"/>
+    <Insert
+      attributevalue_id="{CA78617A-6ACC-48DA-821A-9E839BA29239}"
+      table_id="9"
+      item_id="{7A9802AE-AE96-454C-BF53-26E40A2E891B}"
+      typeattribute_id="{4B226610-2F16-4E4F-96E2-DBB86E641840}"
+      value="Black"/>
+    <!-- E4 -->
+    <Insert
+      attributevalue_id="{EC921B86-EE18-4BC0-9D3E-DEB9E1A4A243}"
+      table_id="9"
+      item_id="{B2C3BF75-8E6F-449B-BC5E-4C68D766AE73}"
+      typeattribute_id="{BFE141E6-5415-44B3-8C30-CF9780585E5A}"
+      value="{8D71E8FF-9CA1-4F42-8D05-1171E7EB5720}"/>
+    <Insert
+      attributevalue_id="{FB250533-39C9-4343-A277-DE2CC03A7F32}"
+      table_id="9"
+      item_id="{B2C3BF75-8E6F-449B-BC5E-4C68D766AE73}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{437D6206-A9D2-4A3D-AF51-0770E1B7CA42}"/>
+    <Insert
+      attributevalue_id="{93A67625-5708-4178-B1E1-54497C655F65}"
+      table_id="9"
+      item_id="{B2C3BF75-8E6F-449B-BC5E-4C68D766AE73}"
+      typeattribute_id="{4B226610-2F16-4E4F-96E2-DBB86E641840}"
+      value="Black"/>
+    <!-- E5 -->
+    <Insert
+      attributevalue_id="{D6AB5729-1332-4AE0-8457-4CA5AA7BBC1D}"
+      table_id="9"
+      item_id="{64344F86-3C38-416D-AB85-DF49B7A951F3}"
+      typeattribute_id="{BFE141E6-5415-44B3-8C30-CF9780585E5A}"
+      value="{64344F86-3C38-416D-AB85-DF49B7A951F3}"/>
+    <Insert
+      attributevalue_id="{9C743BD3-E896-495D-AF1F-0D0F9C71097D}"
+      table_id="9"
+      item_id="{64344F86-3C38-416D-AB85-DF49B7A951F3}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{437D6206-A9D2-4A3D-AF51-0770E1B7CA42}"/>
+    <Insert
+      attributevalue_id="{9BD471F8-11F5-4982-8C0E-227AD1908F82}"
+      table_id="9"
+      item_id="{64344F86-3C38-416D-AB85-DF49B7A951F3}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{5A157270-DC2A-487D-B746-ED097017262C}"/>
+    <Insert
+      attributevalue_id="{A122BC2F-3395-491B-B1C1-46D579F37CA3}"
+      table_id="9"
+      item_id="{64344F86-3C38-416D-AB85-DF49B7A951F3}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{8D71E8FF-9CA1-4F42-8D05-1171E7EB5720}"/>
+    <Insert
+      attributevalue_id="{56E8FD69-D031-4EEF-9A6B-8941EF7839C4}"
+      table_id="9"
+      item_id="{64344F86-3C38-416D-AB85-DF49B7A951F3}"
+      typeattribute_id="{4B226610-2F16-4E4F-96E2-DBB86E641840}"
+      value="Blue"/>    
+    <!-- E6 -->
+    <Insert
+      attributevalue_id="{D6EDB6C0-8586-41A7-B4EC-26DE851B8AAA}"
+      table_id="9"
+      item_id="{8AF01CBF-C8FF-4879-8D11-58E85DC030DD}"
+      typeattribute_id="{BFE141E6-5415-44B3-8C30-CF9780585E5A}"
+      value="{8AF01CBF-C8FF-4879-8D11-58E85DC030DD}"/>
+    <Insert
+      attributevalue_id="{749D6E5F-8A4D-4DCA-87F2-48C5CFBB1BAC}"
+      table_id="9"
+      item_id="{8AF01CBF-C8FF-4879-8D11-58E85DC030DD}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{C01BCDD5-9B5E-44A7-9763-B119AEF4E09A}"/>
+    <Insert
+      attributevalue_id="{442A5CFC-A9BE-46CC-BD9B-F5447240F154}"
+      table_id="9"
+      item_id="{8AF01CBF-C8FF-4879-8D11-58E85DC030DD}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{DB531488-2A26-4000-BA0D-1B4E09AB7243}"/>
+    <Insert
+      attributevalue_id="{D39EDD10-173A-4A8F-A4A1-53D154304E70}"
+      table_id="9"
+      item_id="{8AF01CBF-C8FF-4879-8D11-58E85DC030DD}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{9392918F-B734-4F9B-B78D-393E22E2E288}"/>
+    <Insert
+      attributevalue_id="{23B3A7BD-940A-4E6D-B2C4-1E6089F87266}"
+      table_id="9"
+      item_id="{8AF01CBF-C8FF-4879-8D11-58E85DC030DD}"
+      typeattribute_id="{4B226610-2F16-4E4F-96E2-DBB86E641840}"
+      value="Blue"/>
+    <!-- E7 -->
+    <Insert
+      attributevalue_id="{0C055BBB-5575-418D-B98A-CC7AD879744F}"
+      table_id="9"
+      item_id="{D64CEFB0-2751-46FF-ADD4-8F9194A2D798}"
+      typeattribute_id="{BFE141E6-5415-44B3-8C30-CF9780585E5A}"
+      value="{64344F86-3C38-416D-AB85-DF49B7A951F3}"/>
+    <Insert
+      attributevalue_id="{FB57DE54-3344-4C9D-A6F0-00083482FA55}"
+      table_id="9"
+      item_id="{D64CEFB0-2751-46FF-ADD4-8F9194A2D798}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{8AF01CBF-C8FF-4879-8D11-58E85DC030DD}"/>
+    <Insert
+      attributevalue_id="{132E2B4E-DEAF-436A-98A4-CD20ACABCA3C}"
+      table_id="9"
+      item_id="{D64CEFB0-2751-46FF-ADD4-8F9194A2D798}"
+      typeattribute_id="{4B226610-2F16-4E4F-96E2-DBB86E641840}"
+      value="Green"/>
+    <!-- E8 -->
+    <Insert
+      attributevalue_id="{4EC0A497-A85F-4BAC-B348-42995E391AD7}"
+      table_id="9"
+      item_id="{0D7179D8-C5AC-4567-AC71-0D70526D1E41}"
+      typeattribute_id="{BFE141E6-5415-44B3-8C30-CF9780585E5A}"
+      value="{0D7179D8-C5AC-4567-AC71-0D70526D1E41}"/>
+    <Insert
+      attributevalue_id="{FE123B7F-6E88-45DF-899D-F504F4712ECF}"
+      table_id="9"
+      item_id="{0D7179D8-C5AC-4567-AC71-0D70526D1E41}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{C05B66D0-1A6E-4006-9347-C433EB5AC10F}"/>
+    <Insert
+      attributevalue_id="{D8AD309E-F48B-4DAC-9237-E2745F21D6F3}"
+      table_id="9"
+      item_id="{0D7179D8-C5AC-4567-AC71-0D70526D1E41}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{E21050B5-87BD-4379-817C-CDAA4CFC2639}"/>
+    <Insert
+      attributevalue_id="{29477FEA-E8E6-4790-AF47-7FC57CFC1D9E}"
+      table_id="9"
+      item_id="{0D7179D8-C5AC-4567-AC71-0D70526D1E41}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{10A9C06D-C3C9-4268-8AD7-08B4535ECC75}"/>
+    <Insert
+      attributevalue_id="{33235FFF-D81E-42BD-8AA3-9D49E58E936E}"
+      table_id="9"
+      item_id="{0D7179D8-C5AC-4567-AC71-0D70526D1E41}"
+      typeattribute_id="{4B226610-2F16-4E4F-96E2-DBB86E641840}"
+      value="Orange"/>
+    <!-- E9 -->
+    <Insert
+      attributevalue_id="{0463363C-2277-4288-AA53-E6256FBCABFF}"
+      table_id="9"
+      item_id="{A6A41DF0-086B-4B54-9382-4B7A82B80AC0}"
+      typeattribute_id="{BFE141E6-5415-44B3-8C30-CF9780585E5A}"
+      value="{D64CEFB0-2751-46FF-ADD4-8F9194A2D798}"/>
+    <Insert
+      attributevalue_id="{22D525BB-0469-4E13-B9EB-7CA521AEB630}"
+      table_id="9"
+      item_id="{A6A41DF0-086B-4B54-9382-4B7A82B80AC0}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{0D7179D8-C5AC-4567-AC71-0D70526D1E41}"/>
+    <Insert
+      attributevalue_id="{A3B6E740-C29A-465D-8C74-61FC8808D4BD}"
+      table_id="9"
+      item_id="{A6A41DF0-086B-4B54-9382-4B7A82B80AC0}"
+      typeattribute_id="{4B226610-2F16-4E4F-96E2-DBB86E641840}"
+      value="Red"/>
+    <!-- E10 -->
+    <Insert
+      attributevalue_id="{345328E9-E5A8-4981-83E5-48ACFC9BACF6}"
+      table_id="9"
+      item_id="{56B321D5-5DD7-40CF-BED5-AC5570D62DBB}"
+      typeattribute_id="{BFE141E6-5415-44B3-8C30-CF9780585E5A}"
+      value="{5A157270-DC2A-487D-B746-ED097017262C}"/>
+    <Insert
+      attributevalue_id="{776EAD63-1A47-44CB-ABB0-57F09A134865}"
+      table_id="9"
+      item_id="{56B321D5-5DD7-40CF-BED5-AC5570D62DBB}"
+      typeattribute_id="{BDA78D38-E1B7-4C6A-A2DE-FAF309143399}"
+      value="{C01BCDD5-9B5E-44A7-9763-B119AEF4E09A}"/>
+    <Insert
+      attributevalue_id="{225DE0B4-6133-4BF1-B778-31B55A45B096}"
+      table_id="9"
+      item_id="{56B321D5-5DD7-40CF-BED5-AC5570D62DBB}"
+      typeattribute_id="{4B226610-2F16-4E4F-96E2-DBB86E641840}"
+      value="Black"/>    
+  </AttributeValues>
+  <!--
+  Table 11
+  -->
+  <ConstrainedValueLists>
+    <DeleteAll />
+    <Insert
+      constrainedvaluelist_id="{EA69AB8E-E1B2-4994-9C80-B56D11E7D8A3}"
+      name="Color"
+      description="List of colors"
+      nbritems="3"
+      datatype_id="2"/>
+    <Insert
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      name="Genre"
+      description="List of Genres"
+      nbritems="20"
+      datatype_id="2"/>    
+  </ConstrainedValueLists>
+  <!--
+  Table 12
+  -->  
+  <ConstrainedValues>
+    <DeleteAll />
+    <Insert
+      constrainedvalue_id="{F80BD447-567F-4CB4-95B2-573C8B548844}"
+      constrainedvaluelist_id="{EA69AB8E-E1B2-4994-9C80-B56D11E7D8A3}"
+      value="Red"
+      ordinal="1"
+      description="Color Red" />
+    <Insert
+      constrainedvalue_id="{7A5FEC20-83B5-47D8-A2A8-97E41DE9A2EC}"
+      constrainedvaluelist_id="{EA69AB8E-E1B2-4994-9C80-B56D11E7D8A3}" 
+      value="Green"
+      ordinal="1"
+      description="Color Green" />
+    <Insert
+      constrainedvalue_id="{0C20539A-5ACA-4F0A-AC29-ECBCDDFE0E4A}"
+      constrainedvaluelist_id="{EA69AB8E-E1B2-4994-9C80-B56D11E7D8A3}" 
+      value="Blue"
+      ordinal="1"
+      description="Color Blue" />
+    
+    <Insert
+      constrainedvalue_id="{0CB14DBA-C698-439F-9BF0-8708DD233006}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="General Fiction"
+      ordinal="1"
+      description="General Fiction" />
+    <Insert
+      constrainedvalue_id="{73672164-8DF2-47C5-AF10-FA79FF297C90}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Classics"
+      ordinal="1"
+      description="Classics" />
+    <Insert
+      constrainedvalue_id="{C0132027-D551-4E06-B3B8-2648AE1C2D7B}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Crime"
+      ordinal="1"
+      description="Crime" />
+    <Insert
+      constrainedvalue_id="{94448316-2316-440A-9E37-7DEB01458A6F}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Science Fiction"
+      ordinal="1"
+      description="Science Fiction" />
+    <Insert
+      constrainedvalue_id="{C8E30845-CF67-4F15-B555-19A7FFECC376}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Poetry"
+      ordinal="1"
+      description="Poetry" />
+    <Insert
+      constrainedvalue_id="{0058C247-0296-4FE8-B2D1-66C51796303A}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Polictics, Society"
+      ordinal="1"
+      description="Polictics, Society" />
+    <Insert
+    constrainedvalue_id="{C19A5486-945B-4376-8AE8-28BDFA039808}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Philosophy"
+      ordinal="1"
+      description="Philosophy" />
+    <Insert
+      constrainedvalue_id="{B2CA928C-1C52-422B-839E-588385B004A9}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Travel"
+      ordinal="1"
+      description="Travel" />
+    <Insert
+      constrainedvalue_id="{B2B3636E-49E5-4077-82A8-3228998E149B}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Arts &amp; Entertainment"
+      ordinal="1"
+      description="Arts &amp; Entertainment" />
+    <Insert
+      constrainedvalue_id="{CC60FDD4-CC3F-4A4D-9B8E-66CA1D1D9A62}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Fantasy"
+      ordinal="1"
+      description="Fantasy" />
+    <Insert
+      constrainedvalue_id="{5791D218-B95A-45D8-A151-78DA2772BAE3}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Non-Fiction"
+      ordinal="1"
+      description="Non-Fiction" />
+    <Insert
+      constrainedvalue_id="{3734A0EE-25C0-4853-912D-2D038C66A554}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Biography"
+      ordinal="1"
+      description="Biography" />
+    <Insert
+      constrainedvalue_id="{80009147-7E0B-4451-A40C-F014AFD6E748}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Children &amp; Teen"
+      ordinal="1"
+      description="Children &amp; Teen" />
+    <Insert
+      constrainedvalue_id="{5962F7C8-51FF-4BED-837F-1618A34EAB5A}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Reference &amp; Languages"
+      ordinal="1"
+      description="Reference &amp; Languages" />
+    <Insert
+      constrainedvalue_id="{44E4CCB0-5E07-42E6-9931-CF0FE40A5623}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Science &amp; Nature"
+      ordinal="1"
+      description="Science &amp; Nature" />
+    <Insert
+      constrainedvalue_id="{2F5A1B70-22DA-40A8-AE07-FBFD776502DD}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Health, Mind, Body"
+      ordinal="1"
+      description="Health, Mind, Body" />
+    <Insert
+      constrainedvalue_id="{A484CF0F-9EE1-4CC1-9351-50AB307EEA76}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Sport &amp; Leisure"
+      ordinal="1"
+      description="Sport &amp; Leisure" />
+    <Insert
+      constrainedvalue_id="{5524D8CC-6E5B-4AFE-BFB9-415602BF567E}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="Computing &amp; Network"
+      ordinal="1"
+      description="Computing &amp; Network" />
+    <Insert
+      constrainedvalue_id="{54BA82D8-67E4-4D7E-BC55-ECF8FC704318}"
+      constrainedvaluelist_id="{21F762CC-B33C-49BB-B284-B470BE5FF2DF}"
+      value="House &amp; Garden"
+      ordinal="1"
+      description="House &amp; Garden" />
+  </ConstrainedValues>
+</HIS>

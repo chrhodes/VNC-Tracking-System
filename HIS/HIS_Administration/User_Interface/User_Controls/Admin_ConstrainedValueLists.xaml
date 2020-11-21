@@ -1,0 +1,61 @@
+﻿<local:ucBase x:Class="HIS_Administration.User_Interface.User_Controls.Admin_ConstrainedValueLists"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HIS_Administration"             
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                Orientation="Horizontal">
+            <CheckBox Name="readOnlyCheckBox" Margin="20,10,10,10"
+                Content="Read only" IsChecked="False"
+                Checked="readOnlyCheckBox_Checked"
+                Unchecked="readOnlyCheckBox_UnChecked" />
+            <CheckBox Name="canAddCheckBox" Margin="10"
+                Content="Can add" IsChecked="True"
+                Checked="canAddCheckBox_Checked"
+                Unchecked="canAddCheckBox_UnChecked" />
+            <CheckBox Name="canDeleteCheckBox" Margin="10"
+                Content="Can delete" IsChecked="True"
+                Checked="canDeleteCheckBox_Checked"
+                Unchecked="canDeleteCheckBox_UnChecked" />
+            <Button Name="saveButton" Content="Save"
+              Margin="20,5,5,5"
+              MinWidth="75" MaxHeight="35"
+              Click="saveButton_Click"/>
+            <Button Name="undoButton" Content="Undo"
+              Margin="10,5,5,5"
+              MinWidth="75" MaxHeight="35"
+              Click="undoButton_Click"/>
+            <!--To add, just click in empty row and start typing 
+           To delete, just click in a row and press Delete key-->
+        </StackPanel>
+        <DataGrid Name="constrainedValueListsDataGrid"
+                  Grid.Row="1" AutoGenerateColumns="False" 
+                  Margin="5"  
+                  PreviewKeyDown="constrainedValueListsDataGrid_PreviewKeyDown"
+                  BeginningEdit="constrainedValueListsDataGrid_BeginningEdit"
+                  RowEditEnding="constrainedValueListsDataGrid_RowEditEnding">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Path=Id}" Header="Id" Width="SizeToCells" />
+                <DataGridTextColumn x:Name="dataTypeIdColumn" Binding="{Binding Path=DataTypeId}" Header="DataTypeId" Width="SizeToHeader" />                
+                <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Path=Name}" Header="Name" Width="SizeToCells" />
+                <DataGridTextColumn x:Name="descriptionColumn" Binding="{Binding Path=Description}" Header="Description" Width="SizeToCells" />
+                <DataGridTextColumn x:Name="nbrItemsColumn" Binding="{Binding Path=NbrItems}" Header="NbrItems" Width="SizeToHeader" />
+                <DataGridTemplateColumn x:Name="lastChangedColumn" Header="Last Changed" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Path=LastChanged, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</local:ucBase>

@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+-->
+<ODB>
+  <!--
+  Table 1
+  -->
+  <Tables>
+    <ClearAll />
+    <Table id="1" name="Tables" version="1" description="Contains the list of tables in the ODB database and their current version."/>
+    <Table id="2" name="ActivityLog" version="1" description="Records all {Insert|Update|Delete} activity and who performed it and when."/>
+    <Table id="3" name="AssociationRules" version="1" description="Defines the beginning and end of an association and it's type.  Associations are permitted across tables."/>
+    <Table id="4" name="Associations" version="1" description="One row for every association between two items."/>
+    <Table id="5" name="AssciationTypes" version="1" description="Defines the types of associations that are permitted."/>
+    <Table id="6" name="Attributes" version="1" description="Defines the attribute names that are supported by the system.  ItemTypeAttributes defines more about a specific attribute in the context of an item."/>
+    <Table id="7" name="AttributeValues" version="1" description="One row for every attribute value applied to a specific item in a specific table.  This table along with Items is the main table in the ODB."/>
+    <Table id="8" name="ConstrainedValueLists" version="1" description="Defines the CVLs supported by the ODB."/>
+    <Table id="9" name="ConstrainedValues" version="1" description="One row for every allowed value in a particular CVL."/>
+    <Table id="10" name="DataTypes" version="1" description="Defines the datatypes supported by the ODB."/>
+    <Table id="11" name="Items" version="1" description="One row for every item tracked in the ODB.  This table, along with AttributeValues, is the main table in the ODB."/>
+    <Table id="12" name="ItemTypeAttributes" version="1" description="Defines the particular attributes and their characteristics that apply to a specific type of item."/>
+    <Table id="13" name="ItemTypeGroups" version="1" description="Defines the groupings of ItemTypes supported by the ODB."/>
+    <Table id="14" name="ItemTypes" version="1" description="Defines the types of items supported by the ODB."/>
+    <Table id="15" name="LogFunctions" version="1" description="Defines the type of logging actions supported."/>
+    <Table id="16" name="UsageAttributes" version="1" description="Defines the usage characteristics of a ItemTypeAttribute.  usage_attributes is a bit field of values defined in this table."/>
+  </Tables>
+  
+  <!--
+  Table 2 is ActivityLog table.
+  -->
+  
+  <!--
+  Table 3
+  -->
+  <AssociationRules>
+    <ClearAll />
+    <AssociationRule id="NewGuid" tablebegin="11" itembegin="70EE0785-978A-4a3f-9A54-65C4C593B730" tableend="12" itemend="70694EC1-1667-472c-B90C-C9FD2EBA3E97" associationtype="1"/>
+  </AssociationRules>
+  <!--
+  Table 4
+  -->
+  <Associations>
+    <ClearAll />
+    <Association id="NewGuid" tablebegin="10" itembegin="70EE0785-978A-4a3f-9A54-65C4C593B730" tableend="11" itemend="70EE0785-978A-4a3f-9A54-65C4C593B730" associationrule="1dbfb6ed-098b-4fe2-b04e-5575d6e85042" itemtypegroup="{70EE0785-978A-4a3f-9A54-65C4C593B730}"/>
+  </Associations>
+  <!--
+  Table 5
+  -->
+  <AssociationTypes>
+    <ClearAll />
+    <AssociationType id="1" name="Contains" description="Begin thing contains End thing.  Deleting Begin thing deletes End thing."/>
+    <AssociationType id="2" name="Associates" description="Begin thing is associated with End thing.  Deleting Begin thing does not delete End thing"/>
+  </AssociationTypes>
+  <!--
+  Table 6
+  -->
+  <Attributes>
+    <ClearAll />
+    <Attribute id="39D0F1A0-0FF0-4BC9-8FBF-69599B6818D7" name="arbook" />
+    <Attribute id="60F8104D-338E-481E-95C7-47160538163B" name="author" />
+    <Attribute id="243BD1EA-6C77-4A63-A656-2EA02857AF1F" name="bookinstance" />
+    <Attribute id="EFBBECF9-C5FA-4D28-8804-046CF1171F6A" name="character" />
+    <Attribute id="87464725-2EF3-45FA-9B1B-D84A8536412A" name="comments" />
+    <Attribute id="2DBBDF74-E2FA-45A3-9ADA-79FF3F3415F7" name="copyright" />
+    <Attribute id="08E96E9B-BE6E-4227-B791-120D9E8A763C" name="firstname" />
+    <Attribute id="DF33F608-CAEE-4600-8610-7CB894CE466A" name="format" />
+    <Attribute id="63D15911-09D0-4133-A897-C67994A75A00" name="forwhom" />
+    <Attribute id="C5DE4B07-F304-4874-B4B9-C870793D92DC" name="genre" />
+    <Attribute id="F34A6E13-5028-4976-A5FE-452EC9ECCECE" name="isbn" />
+    <Attribute id="F488FB26-B858-4511-8D79-0C5E90D74FA9" name="lastname" />
+    <Attribute id="D8C63F06-A2B2-4E32-8C43-3AB2EE9C399E" name="level" />
+    <Attribute id="532AEA14-5311-46C3-B167-BEAE62B828CD" name="loan" />
+    <Attribute id="0566EA83-90EC-4BA4-80AA-AEE920FEBC92" name="loandate" />
+    <Attribute id="14646939-D6DF-46AF-B46E-71494D30DA36" name="loanto" />
+    <Attribute id="131FA1EE-288B-43D5-9C17-8A0E7CCDFBBA" name="locale" />
+    <Attribute id="DB4F7FFF-D9A2-481E-84D3-504F3DDB4B76" name="location" />
+    <Attribute id="5C2C0F21-7CB8-46C0-B31D-9E16443C0130" name="middlename" />
+    <Attribute id="5BC6F192-B5FA-4D0A-BB09-FFA7A5F48ADD" name="owner" />
+    <Attribute id="E82A4F7D-1996-48F0-AFAF-5A1FBCD1E310" name="points" />
+    <Attribute id="FBCFCE72-51CF-4117-BE3D-A0EFC6C2945E" name="publisher" />
+    <Attribute id="4A39314E-E814-4D96-AC51-68AC4D884BC5" name="rating" />
+    <Attribute id="C2EEBA14-4C27-4EC0-A6CD-A9FBE29E7898" name="read" />
+    <Attribute id="E30787F0-A3B9-412C-8BE8-91A71E2EA186" name="readby" />
+    <Attribute id="F8353898-DAF0-44AE-BBF0-F991D16D2B59" name="readdate" />
+    <Attribute id="2C673267-A57C-48B3-835C-0344BE9BE277" name="recommendation" />
+    <Attribute id="1C82B2B1-19A5-480E-A4A5-4FA81AF804E5" name="returndate" />
+    <Attribute id="0991FE2E-7FC8-491A-B211-13DCB54CA673" name="score" />
+    <Attribute id="C694ACCB-EA31-44FD-9C6D-52FB43BFD78A" name="story" />
+    <Attribute id="D7AEF902-2B31-4850-AAB9-A41751005885" name="storyline" /> 
+    <Attribute id="496A55CE-22E6-4ABD-9069-0DEC3E0FB85F" name="suffix" />
+    <Attribute id="30631432-1EA5-4264-84C6-32CA2662389E" name="theme" />
+    <Attribute id="347FC721-6920-4020-93A4-942A82F0FBEB" name="title" />
+  </Attributes>
+  <!--
+  Table 7
+  -->
+  <AttributeValues>
+    <AttributeValue id="NewGuid" table="11" item="46745966-91ca-4125-9212-019e91510afc" itemtypeattribute="347fc721-6920-4020-93a4-942a82f0fbeb" value="C# for dummies"/>
+  </AttributeValues>
+  <!--
+  Table 8
+  -->
+  <ConstrainedValueLists>
+    <ClearAll />
+    <ConstrainedValueList id="NewGuid" name="Colors" description="List of colors" numberitems="3" datatype="2"/>
+  </ConstrainedValueLists>
+  <!--
+  Table 9
+  -->
+  <ConstrainedValues>
+    <!--<ClearAll />-->
+    <ConstrainedValue id="NewGuid" cvlid="ea69ab8e-e1b2-4994-9c80-b56d11e7d8a3" value="Red" ordinal="1" description="Color Red" />
+    <ConstrainedValue id="NewGuid" cvlid="ea69ab8e-e1b2-4994-9c80-b56d11e7d8a3" value="Green" ordinal="1" description="Color Green" />
+    <ConstrainedValue id="NewGuid" cvlid="ea69ab8e-e1b2-4994-9c80-b56d11e7d8a3" value="Blue" ordinal="1" description="Color Blue" />
+  </ConstrainedValues>
+  <!--
+  Table 10
+  -->
+  <DataTypes>
+    <ClearAll />
+    <DataType id="1" name="number" description="bigint"/>
+    <DataType id="2" name="string" description="nvarchar(1024)"/>
+    <DataType id="3" name="datetime" description="datetime"/>
+    <DataType id="4" name="money" description="currency"/>
+    <DataType id="5" name="oid" description="GUID"/>
+    <DataType id="6" name="image" description="image"/>
+    <DataType id="7" name="constrainedvalue" description="Constrained Value" />
+  </DataTypes>
+  
+  <!--
+  Table 11
+  -->
+  <Items>
+    <ClearAll />
+    <Item id="NewGuid" name="C# For Dummies" itemtype="add16fe6-9424-4af7-834c-12a472172b76"/>
+    <Item id="NewGuid" name="VB For Dummies" itemtype="add16fe6-9424-4af7-834c-12a472172b76"/>
+  </Items>
+  <!--
+  Table 12
+  -->
+  <ItemTypeAttributes>
+    <ClearAll />
+    <ItemTypeAttribute id="a0ed8f5d-8e4f-43d4-98d0-6febd5ff3660" itemtype="add16fe6-9424-4af7-834c-12a472172b76" attribute="347fc721-6920-4020-93a4-942a82f0fbeb" usageattributes="3" datatype="2" version="1" description="Title"/>
+  </ItemTypeAttributes>
+  
+  <!--
+  Table 13
+  -->
+  <ItemTypeGroups>
+    <ClearAll />
+    <ItemTypeGroup id="NewGuid" name="Books" description="All types of books"/>
+  </ItemTypeGroups>
+  <!--
+  Table 14
+  -->
+  <ItemTypes>
+    <ClearAll />
+    <ItemType id="add16fe6-9424-4af7-834c-12a472172b76" name="Book" group="0991FE2E-7FC8-491A-B211-13DCB54CA673" version="1" description="Book item type"/>
+    <ItemType id="e847e9c1-d592-4956-b8aa-58ffef533b1a" name="CD" group="" version="1" description="CD item type"/>
+  </ItemTypes>
+  <!--
+  Table 15
+  -->
+  <LogFunctions>
+    <ClearAll />
+    <LogFunction id="1" name="Insert" description=""/>
+    <LogFunction id="2" name="Update" description=""/>
+    <LogFunction id="3" name="Delete" description=""/>
+  </LogFunctions>
+
+  <!--
+  -->
+  <UsageAttributes>
+    <ClearAll />
+    <UsageAttribute id="1"          name="IsRequired"       description="Attribute is required."/>
+    <UsageAttribute id="2"          name="IsReadOnly"       description="Attribute is read only."/>
+    <UsageAttribute id="4"          name="IsPassword"       description="Attribute is password field."/>
+    <UsageAttribute id="8"          name="IsInitOnly"       description="Attribute can only be written once.  Then read only."/>
+    <UsageAttribute id="16"         name="IsUpperCase"      description="Attribute is upper case."/>
+    <UsageAttribute id="32"         name="IsSortable"       description="Attribute is suitable for sorting."/>
+    <UsageAttribute id="64"         name="IsQueryKeyOk"     description="Attribute is suitable for query key."/>
+    <UsageAttribute id="128"        name="IsQueryFilterOk"  description="Attribute is suitable for query filter"/>
+    <UsageAttribute id="256"        name="IsMultiValued"    description="Attribute may have more than one value."/>
+    <UsageAttribute id="512"        name="UsageAttribute10" description="Usage Attribute 10.  Available."/>
+    <UsageAttribute id="1024"       name="UsageAttribute11" description="Usage Attribute 11.  Available."/>
+    <UsageAttribute id="2048"       name="UsageAttribute12" description="Usage Attribute 12.  Available."/>
+    <UsageAttribute id="4096"       name="UsageAttribute13" description="Usage Attribute 13.  Available."/>
+    <UsageAttribute id="8192"       name="UsageAttribute14" description="Usage Attribute 14.  Available."/>
+    <UsageAttribute id="16384"      name="UsageAttribute15" description="Usage Attribute 15.  Available."/>
+    <UsageAttribute id="32768"      name="UsageAttribute16" description="Usage Attribute 16.  Available."/>
+    <UsageAttribute id="65536"      name="UsageAttribute17" description="Usage Attribute 17.  Available."/>
+    <UsageAttribute id="131072"     name="UsageAttribute18" description="Usage Attribute 18.  Available."/>
+    <UsageAttribute id="262144"     name="UsageAttribute19" description="Usage Attribute 19.  Available."/>
+    <UsageAttribute id="524288"     name="UsageAttribute20" description="Usage Attribute 20.  Available."/>
+    <UsageAttribute id="1048576"    name="UsageAttribute21" description="Usage Attribute 21.  Available."/>
+    <UsageAttribute id="2097152"    name="UsageAttribute22" description="Usage Attribute 22.  Available."/>
+    <UsageAttribute id="4194304"    name="UsageAttribute23" description="Usage Attribute 23.  Available."/>
+    <UsageAttribute id="8388608"    name="UsageAttribute24" description="Usage Attribute 24.  Available."/>
+    <UsageAttribute id="16777216"   name="UsageAttribute25" description="Usage Attribute 25.  Available."/>
+    <UsageAttribute id="33554432"   name="UsageAttribute26" description="Usage Attribute 26.  Available."/>
+    <UsageAttribute id="67108864"   name="UsageAttribute27" description="Usage Attribute 27.  Available."/>
+    <UsageAttribute id="134217728"  name="UsageAttribute28" description="Usage Attribute 28.  Available."/>
+    <UsageAttribute id="268435456"  name="UsageAttribute29" description="Usage Attribute 29.  Available."/>
+    <UsageAttribute id="536870912"  name="UsageAttribute30" description="Usage Attribute 30.  Available."/>
+    <UsageAttribute id="1073741824" name="UsageAttribute31" description="Usage Attribute 31.  Available."/>
+    <!--<UsageAttribute id="2147483648" name="UsageAttribute32" description="Usage Attribute 32.  Available."/>-->
+  </UsageAttributes>
+</ODB>
